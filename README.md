@@ -196,5 +196,3 @@ Com o tempo, quanto mais feedbacks forem inseridos, mais o modelo aprende os pad
 
 Este projeto está sob a licença MIT.
 Sinta-se livre para usar, estudar e aprimorar o IA LifeFit 🚀
-
-```
