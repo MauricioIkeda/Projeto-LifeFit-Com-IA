@@ -1,9 +1,60 @@
 # 🧠 LifeFit — Recomendador Inteligente de Exercícios
 
+![Python](https://img.shields.io/badge/Python-3.14-blue?logo=python)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.9-red?logo=pytorch)
+![License](https://img.shields.io/badge/License-MIT-green?logo=github)
+
 O **LifeFit** é um sistema de recomendação de exercícios físicos baseado em **Inteligência Artificial**, desenvolvido em **Python + PyTorch** e integrado a um banco de dados **PostgreSQL**.  
 Ele aprende a partir de perfis de usuários e feedbacks de treinos, sugerindo exercícios personalizados com base em **idade, peso, altura, nível de atividade, objetivo, gênero e experiência**.
 
 ---
+
+## 🧭 Arquitetura do Sistema
+
+O diagrama abaixo mostra o fluxo completo do LifeFit — desde a coleta de dados até a geração das recomendações inteligentes:
+
+```mermaid
+flowchart LR
+    subgraph USER["👤 Usuário"]
+        A1["Perfil do Usuário (idade, peso, altura, objetivo...)"]
+        A2["Feedback dos Exercícios (aprovado/reprovado)"]
+    end
+
+    subgraph DB["🗄️ Banco de Dados PostgreSQL"]
+        B1["Tabela: perfil"]
+        B2["Tabela: exercicios"]
+        B3["Tabela: feedback"]
+        B4["Tabela: feedback_exercicio"]
+    end
+
+    subgraph PREPROCESS["⚙️ Pré-processamento (Scikit-learn)"]
+        C1["MinMaxScaler (normaliza idade, peso, altura)"]
+        C2["OneHotEncoder (codifica categorias em vetores)"]
+        C3["ColumnTransformer (combina todas as features)"]
+    end
+
+    subgraph MODEL["🧠 Modelo PyTorch"]
+        D1["Camada 1: Linear (Entradas → 64)"]
+        D2["Camada 2: Linear (64 → 32)"]
+        D3["Camada 3: Linear (32 → 16)"]
+        D4["Camada 4: Linear (16 → 1) + Sigmoid"]
+        D5["Saída: Probabilidade de Recomendação (0–1)"]
+    end
+
+    subgraph OUTPUT["📊 Resultados"]
+        E1["Lista de Exercícios Recomendados"]
+        E2["Porcentagem de Afinidade com o Perfil"]
+    end
+
+    A1 -->|"Envia dados"| B1
+    A2 -->|"Feedback"| B4
+    B1 & B2 & B3 & B4 -->|"Consulta SQL"| PREPROCESS
+    PREPROCESS -->|"Gera vetor numérico"| MODEL
+    MODEL -->|"Probabilidade"| OUTPUT
+    OUTPUT -->|"Mostra ao usuário"| A1
+    OUTPUT -->|"Feedback volta para treino"| A2
+
+```
 
 ## 🚀 Tecnologias Utilizadas
 
