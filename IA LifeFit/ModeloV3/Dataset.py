@@ -17,6 +17,7 @@ class FitnessDatasetColdStartTrain(Dataset):
         
         # Definir colunas numericas, categóricas e de alvo
         self.number_of_exercices = number_of_exercices
+        
         self.numeric_cols = ["idade", "peso", "altura", "tempo_sessao"]
         self.categoric_cols = ["genero", "objetivo", "nivel", "foco_muscular", "local_treino", "limitacoes"]
         self.target_cols = [f"ex{i}" for i in range(1, 6)]

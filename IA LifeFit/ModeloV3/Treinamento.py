@@ -15,7 +15,7 @@ DATA_FOLDER = "ModeloV3/Dados"
 DATASET_CSV = f"{DATA_FOLDER}/DatasetLindo.csv"
 SCALER_PATH = f"{DATA_FOLDER}/scaler_lindo.joblib"
 NOME_MODELO_SALVO = f"{DATA_FOLDER}/modelo_lindo_final.pth"
-NUM_EXERCICIOS = 52
+NUM_EXERCICIOS = 76
 NUM_EPOCHS = 100
 BATCH_SIZE = 64
 

@@ -3,7 +3,7 @@ import numpy as np
 
 # Constantes de configuração do dataset
 DATA_FOLDER = "ModeloV3/Dados"
-ARQUIVO_EXERCICIOS = f"{DATA_FOLDER}/exerciciosV2.csv"
+ARQUIVO_EXERCICIOS = f"{DATA_FOLDER}/exerciciosV3.csv"
 ARQUIVO_SAIDA = f"{DATA_FOLDER}/DatasetLindo.csv"
 NUM_LINHAS = 100000
 
