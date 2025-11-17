@@ -1,0 +1,152 @@
+exercise_id,nome_exercicio,foco_muscular,equipamento,dificuldade,risco_limitacao,loc_0_pc,loc_1_halteres,loc_2_maquina
+0,Flexão de Braço,Peito,Peso Corporal,Iniciante,Ombro,1,1,1
+1,Supino Reto (Barra),Peito,Barra,Intermediário,Ombro,0,1,1
+2,Supino Inclinado (Halteres),Peito,Halteres,Intermediário,Ombro,0,1,1
+3,Voador / Pec Deck,Peito,Máquina,Iniciante,Nenhum,0,0,1
+4,Supino Máquina (Chest Press),Peito,Máquina,Iniciante,Nenhum,0,0,1
+5,Crucifixo (Halteres),Peito,Halteres,Intermediário,Ombro,0,1,1
+6,Paralelas (Dips),Peito,Peso Corporal,Avançado,Ombro,1,1,1
+7,Flexão Inclinada (na parede/banco),Peito,Peso Corporal,Iniciante,Nenhum,1,1,1
+8,Flexão Declinada (pés elevados),Peito,Peso Corporal,Intermediário,Ombro,1,1,1
+9,Flexão Diamante,Peito,Peso Corporal,Intermediário,Ombro,1,1,1
+10,Crucifixo (Cabos),Peito,Cabos,Intermediário,Nenhum,0,0,1
+11,Puxada Alta / Pulldown,Costas,Máquina,Iniciante,Nenhum,0,0,1
+12,Remada Curvada (Barra),Costas,Barra,Avançado,Lombar,0,1,1
+13,Remada Sentada (Máquina),Costas,Máquina,Iniciante,Nenhum,0,0,1
+14,Remada Cavalinho,Costas,Máquina,Intermediário,Lombar,0,0,1
+15,Remada Unilateral (Halteres),Costas,Halteres,Intermediário,Nenhum,0,1,1
+16,Barra Fixa / Pull-up,Costas,Peso Corporal,Avançado,Nenhum,1,1,1
+17,Hiperextensão Lombar,Costas,Peso Corporal,Iniciante,Lombar,1,1,1
+18,Remada Australiana (Invertida),Costas,Peso Corporal,Iniciante,Nenhum,1,1,1
+19,Pulldown (Cordas),Costas,Cabos,Intermediário,Nenhum,0,0,1
+20,Pullover (Halteres),Costas,Halteres,Intermediário,Ombro,0,1,1
+21,Agachamento Livre (Barra),Pernas,Barra,Avançado,Lombar/Joelho,0,1,1
+22,Agachamento (Peso Corporal),Pernas,Peso Corporal,Iniciante,Joelho,1,1,1
+23,Leg Press 45,Pernas,Máquina,Intermediário,Joelho,0,0,1
+24,Cadeira Extensora,Pernas,Máquina,Iniciante,Joelho,0,0,1
+25,Cadeira Flexora,Pernas,Máquina,Iniciante,Nenhum,0,0,1
+26,Levantamento Terra / Deadlift,Pernas,Barra,Avançado,Lombar,0,1,1
+27,Avanço / Passada (Halteres),Pernas,Halteres,Intermediário,Joelho,0,1,1
+28,Panturrilha (Máquina),Pernas,Máquina,Iniciante,Nenhum,0,0,1
+29,Agachamento Taça (Goblet Squat),Pernas,Halteres,Iniciante,Lombar/Joelho,0,1,1
+30,Stiff (Halteres),Pernas,Halteres,Intermediário,Lombar,0,1,1
+31,Agachamento Búlgaro (Halteres),Pernas,Halteres,Avançado,Joelho,0,1,1
+32,Panturrilha (em pé PC),Pernas,Peso Corporal,Iniciante,Nenhum,1,1,1
+33,Agachamento Sumô (Halteres),Pernas,Halteres,Iniciante,Joelho,0,1,1
+34,Kettlebell Swing,Pernas,Halteres,Avançado,Lombar,0,1,1
+35,Levantamento Terra (Sumô),Pernas,Barra,Avançado,Lombar,0,1,1
+36,Desenvolvimento (Halteres),Ombros,Halteres,Intermediário,Ombro/Lombar,0,1,1
+37,Desenvolvimento (Máquina),Ombros,Máquina,Iniciante,Nenhum,0,0,1
+38,Elevação Lateral (Halteres),Ombros,Halteres,Intermediário,Ombro,0,1,1
+39,Elevação Frontal (Halteres),Ombros,Halteres,Iniciante,Ombro,0,1,1
+40,Remada Alta (Barra),Ombros,Barra,Intermediário,Ombro,0,1,1
+41,Encolhimento (Halteres),Ombros,Halteres,Iniciante,Nenhum,0,1,1
+42,Desenvolvimento Arnold (Halteres),Ombros,Halteres,Intermediário,Ombro,0,1,1
+43,Elevação Lateral (Cabos),Ombros,Cabos,Intermediário,Nenhum,0,0,1
+44,Puxada ao Rosto (Face Pull),Ombros,Cabos,Iniciante,Ombro,0,0,1
+45,Flexão Pike (Pike Push-up),Ombros,Peso Corporal,Avançado,Ombro,1,1,1
+46,Thruster (Halteres),Ombros,Halteres,Avançado,Lombar/Ombro,0,1,1
+47,Rosca Direta (Barra),Braços,Barra,Intermediário,Nenhum,0,1,1
+48,Rosca Alternada (Halteres),Braços,Halteres,Iniciante,Nenhum,0,1,1
+49,Rosca Scott (Máquina),Braços,Máquina,Iniciante,Nenhum,0,0,1
+50,Tríceps Testa (Barra),Braços,Barra,Intermediário,Ombro,0,1,1
+51,Tríceps Pulley (Cabos),Braços,Cabos,Iniciante,Nenhum,0,0,1
+52,Tríceps Banco (Mergulho),Braços,Peso Corporal,Intermediário,Ombro,1,1,1
+53,Rosca Martelo (Halteres),Braços,Halteres,Iniciante,Nenhum,0,1,1
+54,Flexão Diamante (Foco Tríceps),Braços,Peso Corporal,Intermediário,Ombro,1,1,1
+55,Rosca Concentrada (Halteres),Braços,Halteres,Iniciante,Nenhum,0,1,1
+56,Tríceps Francês (Halteres),Braços,Halteres,Intermediário,Ombro,0,1,1
+57,Rosca Inversa (Barra),Braços,Barra,Iniciante,Nenhum,0,1,1
+58,Abdominal (Crunch),Core,Peso Corporal,Iniciante,Lombar,1,1,1
+59,Prancha (Plank),Core,Peso Corporal,Iniciante,Nenhum,1,1,1
+60,Elevação de Pernas (Paralela),Core,Peso Corporal,Intermediário,Lombar,1,1,1
+61,Roda Abdominal,Core,Peso Corporal,Avançado,Lombar,1,1,1
+62,Abdominal Máquina,Core,Máquina,Iniciante,Nenhum,0,0,1
+63,Rotação Russa,Core,Halteres,Intermediário,Lombar,0,1,1
+64,Abdominal Infra (Deitado),Core,Peso Corporal,Iniciante,Lombar,1,1,1
+65,Prancha Lateral,Core,Peso Corporal,Iniciante,Nenhum,1,1,1
+66,Abdominal Bicicleta,Core,Peso Corporal,Intermediário,Lombar,1,1,1
+67,Esteira (Corrida),Cardio,Máquina,Intermediário,Joelho,0,0,1
+68,Esteira (Caminhada),Cardio,Máquina,Iniciante,Nenhum,0,0,1
+69,Bicicleta Ergométrica,Cardio,Máquina,Iniciante,Nenhum,0,0,1
+70,Elíptico (Transport),Cardio,Máquina,Iniciante,Nenhum,0,0,1
+71,Pular Corda,Cardio,Peso Corporal,Intermediário,Joelho,1,1,1
+72,Burpee,Cardio,Peso Corporal,Avançado,Lombar/Joelho,1,1,1
+73,Polichinelo,Cardio,Peso Corporal,Iniciante,Joelho,1,1,1
+74,Agachamento com Salto,Cardio,Peso Corporal,Intermediário,Joelho,1,1,1
+75,Escada (Stair Climber),Cardio,Máquina,Intermediário,Joelho,0,0,1
+76,Supino Inclinado (Barra),Peito,Barra,Intermediário,Ombro,0,1,0
+77,Supino Declinado (Barra),Peito,Barra,Intermediário,Ombro,0,1,0
+78,Supino com Halteres no Banco Reto,Peito,Halteres,Intermediário,Ombro,0,1,0
+79,Supino com Halteres no Banco Inclinado,Peito,Halteres,Intermediário,Ombro,0,1,0
+80,Crucifixo na Máquina,Peito,Máquina,Iniciante,Ombro,0,0,1
+81,Crucifixo na Polia Alta,Peito,Cabo/Polia,Intermediário,Ombro,0,0,1
+82,Crucifixo no Banco Inclinado (Halteres),Peito,Halteres,Intermediário,Ombro,0,1,0
+83,Flexão com Apoio de Joelhos,Peito,Peso Corporal,Iniciante,Nenhuma,1,0,0
+84,Flexão com Batida de Mão,Peito,Peso Corporal,Avançado,Nenhuma,1,0,0
+85,Flexão em Barra Paralela (Peito),Peito,Barra Paralela,Avançado,Nenhuma,0,1,0
+86,Barra Fixa Pegada Pronada,Costas,Barra Fixa,Avançado,Nenhuma,0,1,0
+87,Barra Fixa Pegada Supinada,Costas,Barra Fixa,Avançado,Nenhuma,0,1,0
+88,Puxada na Frente na Polia Aberta,Costas,Máquina,Intermediário,Nenhuma,0,0,1
+89,Puxada na Frente na Polia Fechada,Costas,Máquina,Intermediário,Nenhuma,0,0,1
+90,Remada Curvada (Barra),Costas,Barra,Intermediário,Lombar,0,1,0
+91,Remada Curvada (Halteres),Costas,Halteres,Intermediário,Lombar,0,1,0
+92,Remada Unilateral com Halter,Costas,Halteres,Iniciante,Nenhuma,0,1,0
+93,Remada Sentado na Máquina,Costas,Máquina,Iniciante,Nenhuma,0,0,1
+94,Pulldown na Máquina,Costas,Máquina,Iniciante,Nenhuma,0,0,1
+95,Pullover com Halter,Costas,Halteres,Intermediário,Nenhuma,0,1,0
+96,Agachamento Livre (Barra nas Costas),Pernas,Barra,Avançado,Joelho,0,1,0
+97,Agachamento no Smith,Pernas,Máquina,Intermediário,Joelho,0,0,1
+98,Agachamento Frontal,Pernas,Barra,Avançado,Joelho,0,1,0
+99,Leg Press 45°,Pernas,Máquina,Intermediário,Joelho,0,0,1
+100,Cadeira Extensora,Pernas,Máquina,Iniciante,Joelho,0,0,1
+101,Mesa Flexora,Pernas,Máquina,Iniciante,Nenhuma,0,0,1
+102,Avanço com Halteres,Pernas,Halteres,Intermediário,Nenhuma,0,1,0
+103,Afundo Búlgaro,Pernas,Halteres,Avançado,Joelho,0,1,0
+104,Agachamento Sumô com Halter,Pernas,Halteres,Intermediário,Joelho,0,1,0
+105,Elevação de Quadril (Glúteo) com Peso Corporal,Pernas,Peso Corporal,Iniciante,Nenhuma,1,0,0
+106,Elevação de Quadril com Barra,Pernas,Barra,Intermediário,Nenhuma,0,1,0
+107,Panturrilha em Pé (Peso Corporal),Pernas,Peso Corporal,Iniciante,Nenhuma,1,0,0
+108,Panturrilha em Pé com Halteres,Pernas,Halteres,Intermediário,Nenhuma,0,1,0
+109,Panturrilha Sentado na Máquina,Pernas,Máquina,Intermediário,Nenhuma,0,0,1
+110,Desenvolvimento com Barra em Pé,Ombros,Barra,Intermediário,Ombro,0,1,0
+111,Desenvolvimento com Halteres Sentado,Ombros,Halteres,Intermediário,Ombro,0,1,0
+112,Desenvolvimento na Máquina,Ombros,Máquina,Iniciante,Ombro,0,0,1
+113,Elevação Lateral com Halteres,Ombros,Halteres,Iniciante,Ombro,0,1,0
+114,Elevação Frontal com Halteres,Ombros,Halteres,Iniciante,Ombro,0,1,0
+115,Elevação Lateral na Polia,Ombros,Cabo/Polia,Intermediário,Ombro,0,0,1
+116,Remada Alta com Barra,Ombros,Barra,Intermediário,Ombro,0,1,0
+117,Crucifixo Invertido na Máquina,Ombros,Máquina,Iniciante,Ombro,0,0,1
+118,Crucifixo Invertido com Halteres,Ombros,Halteres,Intermediário,Ombro,0,1,0
+119,Face Pull na Polia,Ombros,Cabo/Polia,Intermediário,Ombro,0,0,1
+120,Rosca Direta com Barra,Braços,Barra,Iniciante,Nenhuma,0,1,0
+121,Rosca Direta com Halteres,Braços,Halteres,Iniciante,Nenhuma,0,1,0
+122,Rosca Martelo com Halteres,Braços,Halteres,Intermediário,Nenhuma,0,1,0
+123,Rosca Concentrada,Braços,Halteres,Intermediário,Nenhuma,0,1,0
+124,Rosca Scott na Máquina,Braços,Máquina,Iniciante,Nenhuma,0,0,1
+125,Tríceps Pulley na Polia Alta,Braços,Cabo/Polia,Iniciante,Nenhuma,0,0,1
+126,Tríceps Testa com Barra,Braços,Barra,Intermediário,Nenhuma,0,1,0
+127,Tríceps Coice com Halter,Braços,Halteres,Intermediário,Nenhuma,0,1,0
+128,Mergulho em Banco (Tríceps),Braços,Peso Corporal,Iniciante,Nenhuma,1,0,0
+129,Tríceps Francês com Halter,Braços,Halteres,Intermediário,Nenhuma,0,1,0
+130,Prancha Isométrica,Core,Peso Corporal,Iniciante,Nenhuma,1,0,0
+131,Prancha Lateral,Core,Peso Corporal,Intermediário,Nenhuma,1,0,0
+132,Abdominal Crunch no Solo,Core,Peso Corporal,Iniciante,Nenhuma,1,0,0
+133,Abdominal Crunch na Máquina,Core,Máquina,Iniciante,Nenhuma,0,0,1
+134,Abdominal Infra com Elevação de Pernas,Core,Peso Corporal,Intermediário,Nenhuma,1,0,0
+135,Abdominal na Polia Alta (Crunch na Polia),Core,Cabo/Polia,Intermediário,Nenhuma,0,0,1
+136,Prancha com Elevação Alternada de Braço,Core,Peso Corporal,Intermediário,Nenhuma,1,0,0
+137,Prancha com Elevação de Pernas,Core,Peso Corporal,Intermediário,Nenhuma,1,0,0
+138,Abdominal Bicicleta,Core,Peso Corporal,Iniciante,Nenhuma,1,0,0
+139,Elevação de Pernas na Barra Fixa,Core,Barra Fixa,Avançado,Nenhuma,0,1,0
+140,Corrida na Esteira,Cardio,Máquina,Intermediário,Nenhuma,0,0,1
+141,Caminhada Rápida na Esteira,Cardio,Máquina,Iniciante,Nenhuma,0,0,1
+142,Bicicleta Ergométrica Sentado,Cardio,Máquina,Iniciante,Nenhuma,0,0,1
+143,Bicicleta Ergométrica em Pé (Spinning),Cardio,Máquina,Intermediário,Nenhuma,0,0,1
+144,Elíptico (Transport),Cardio,Máquina,Iniciante,Nenhuma,0,0,1
+145,Escada (Stair Climber),Cardio,Máquina,Intermediário,Nenhuma,0,0,1
+146,Remo Ergométrico,Cardio,Máquina,Intermediário,Nenhuma,0,0,1
+147,Polichinelo,Cardio,Peso Corporal,Iniciante,Nenhuma,1,0,0
+148,Burpee,Cardio,Peso Corporal,Avançado,Nenhuma,1,0,0
+149,Corrida ao Ar Livre,Cardio,Sem Equipamento,Intermediário,Nenhuma,1,0,0
+150,Corda de Pular,Cardio,Corda,Intermediário,Nenhuma,0,1,0

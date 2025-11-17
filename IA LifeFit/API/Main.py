@@ -40,7 +40,7 @@ async def lifespan(app: FastAPI):
         
     # Carregando Exercicios para mapear IDs para nomes
     try:
-        df_exercises = pd.read_csv("ModeloV3/Dados/exerciciosV3.csv")
+        df_exercises = pd.read_csv("ModeloV3/Dados/exerciciosV4.csv")
         assets["mapa_nomes"] = df_exercises.set_index('exercise_id')['nome_exercicio'].to_dict()
         print(f"Exercícios carregados com sucesso. Total de exercícios: {len(assets['mapa_nomes'])}")
     except FileNotFoundError:

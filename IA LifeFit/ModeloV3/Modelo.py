@@ -16,7 +16,7 @@ import torch.nn as nn
 # - Limitacoes (Nenhuma, Joelho, Lombar, Ombro)
 
 class FitnessModel(nn.Module):
-    def __init__(self, number_of_exercices=76, input_size=36, dropout_rate=0.3):
+    def __init__(self, number_of_exercices=209, input_size=36, dropout_rate=0.3):
         super().__init__()
         
         # Iniciando variaveis
