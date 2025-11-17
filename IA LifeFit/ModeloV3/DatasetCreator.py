@@ -95,12 +95,11 @@ for _ in range(NUM_LINHAS):
     
     # Verifica se há exercícios suficientes após os filtros
     if len(lista_id_exercicios) < 5:
-        falhas += 1
-        continue
+            falhas += 1
+            continue
     else:
-        # Seleciona os 5 primeiros exercícios (após ordenar)
-        lista_id_exercicios.sort()
-        exercicios_finais = lista_id_exercicios[0:5]
+        exercicios_finais = np.random.choice(lista_id_exercicios, 5, replace=False)
+        exercicios_finais.sort()
         
         # Monta a linha do dataset
         linha = {

@@ -6,7 +6,7 @@ import joblib
 import numpy as np 
 
 class FitnessDatasetColdStartTrain(Dataset):
-    def __init__(self, csv_path, scaler_path="scaler_lindo.joblib", fit_scaler=True, number_of_exercices=52):
+    def __init__(self, csv_path, scaler_path="scaler_lindo.joblib", fit_scaler=True, number_of_exercices=76):
         
         # Carregar o dataset do CSV
         try:
