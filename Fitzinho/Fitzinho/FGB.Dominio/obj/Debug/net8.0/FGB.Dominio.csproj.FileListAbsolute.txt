@@ -1,0 +1,15 @@
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\bin\Debug\net8.0\FGB.Dominio.deps.json
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\bin\Debug\net8.0\FGB.Dominio.runtimeconfig.json
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\bin\Debug\net8.0\FGB.Dominio.dll
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\bin\Debug\net8.0\FGB.Dominio.pdb
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\FGB.Dominio.csproj.AssemblyReference.cache
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\FGB.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\FGB.Dominio.AssemblyInfoInputs.cache
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\FGB.Dominio.AssemblyInfo.cs
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\FGB.Dominio.csproj.CoreCompileInputs.cache
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\FGB.Dominio.sourcelink.json
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\FGB.Dominio.dll
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\refint\FGB.Dominio.dll
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\FGB.Dominio.pdb
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\FGB.Dominio.genruntimeconfig.cache
+C:\Github\LifeFit\Fitzinho\Fitzinho\FGB.Dominio\obj\Debug\net8.0\ref\FGB.Dominio.dll
