@@ -1,4 +1,4 @@
-﻿namespace FGB.Entidades
+﻿namespace FGB.Dominio.Entidades
 {
     public class EntidadeBase
     {
