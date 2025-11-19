@@ -1,249 +1,165 @@
-# 🧠 LifeFit — Recomendador Inteligente de Exercícios
+# 🧠 LifeFit – Recomendador Inteligente de Exercícios
 
-![Python](https://img.shields.io/badge/Python-3.14-blue?logo=python)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.9-red?logo=pytorch)
-![License](https://img.shields.io/badge/License-MIT-green?logo=github)
+O LifeFit é um sistema fitness acadêmico composto por três módulos que trabalham juntos:
 
-O **LifeFit** é um sistema de recomendação de exercícios físicos baseado em **Inteligência Artificial**, desenvolvido em **Python + PyTorch** e integrado a um banco de dados **PostgreSQL**.  
-Ele aprende a partir de perfis de usuários e feedbacks de treinos, sugerindo exercícios personalizados com base em **idade, peso, altura, nível de atividade, objetivo, gênero e experiência**.
+1. **API ASP.NET C#**  
+   - controla o banco **PostgreSQL**  
+   - gerencia perfis, exercícios e feedbacks  
+   - envia dados para a IA via FastAPI
+
+2. **IA em Python (PyTorch)**  
+   - recebe um perfil já estruturado pela API  
+   - aplica **normalização manual** e **one-hot encoding manual**  
+   - calcula recomendações de exercícios via rede neural
+
+3. **FastAPI (Python)**  
+   - age como ponte HTTP entre a API ASP.NET e o módulo de IA
 
 ---
 
-## 🧭 Arquitetura do Sistema
+## 🌐 Visão Geral da Arquitetura
 
-O diagrama abaixo mostra o fluxo completo do LifeFit — desde a coleta de dados até a geração das recomendações inteligentes:
-
-```mermaid
+```
 flowchart LR
-    subgraph USER["👤 Usuário"]
-        A1["Perfil do Usuário (idade, peso, altura, objetivo...)"]
-        A2["Feedback dos Exercícios (aprovado/reprovado)"]
-    end
-
-    subgraph DB["🗄️ Banco de Dados PostgreSQL"]
-        B1["Tabela: perfil"]
-        B2["Tabela: exercicios"]
-        B3["Tabela: feedback"]
-        B4["Tabela: feedback_exercicio"]
-    end
-
-    subgraph PREPROCESS["⚙️ Pré-processamento (Scikit-learn)"]
-        C1["MinMaxScaler (normaliza idade, peso, altura)"]
-        C2["OneHotEncoder (codifica categorias em vetores)"]
-        C3["ColumnTransformer (combina todas as features)"]
-    end
-
-    subgraph MODEL["🧠 Modelo PyTorch"]
-        D1["Camada 1: Linear (Entradas → 64)"]
-        D2["Camada 2: Linear (64 → 32)"]
-        D3["Camada 3: Linear (32 → 16)"]
-        D4["Camada 4: Linear (16 → 1) + Sigmoid"]
-        D5["Saída: Probabilidade de Recomendação (0–1)"]
-    end
-
-    subgraph OUTPUT["📊 Resultados"]
-        E1["Lista de Exercícios Recomendados"]
-        E2["Porcentagem de Afinidade com o Perfil"]
-    end
-
-    A1 -->|"Envia dados"| B1
-    A2 -->|"Feedback"| B4
-    B1 & B2 & B3 & B4 -->|"Consulta SQL"| PREPROCESS
-    PREPROCESS -->|"Gera vetor numérico"| MODEL
-    MODEL -->|"Probabilidade"| OUTPUT
-    OUTPUT -->|"Mostra ao usuário"| A1
-    OUTPUT -->|"Feedback volta para treino"| A2
-
-```
-
-## 🚀 Tecnologias Utilizadas
-
-| Categoria | Tecnologias |
-|------------|--------------|
-| Linguagem | 🐍 Python 3.14 |
-| Machine Learning | 🧠 PyTorch |
-| Banco de Dados | 🐘 PostgreSQL + SQLAlchemy |
-| Pré-processamento | 🧩 Scikit-learn (`MinMaxScaler`, `OneHotEncoder`, `ColumnTransformer`) |
-| Persistência | 💾 Joblib (para salvar o preprocessador) |
-| GPU (opcional) | ⚡ CUDA (treinamento acelerado) |
-
----
-
-## ⚙️ Estrutura do Projeto
-
-```
-
-IA-LifeFit/
-│
-├── TreinarIA.py              # Script original de treino do modelo
-├── TreinarIA2.py             # Versão aprimorada com validação e early stopping
-├── TestarModelo.py           # Script para carregar o modelo e gerar recomendações
-│
-├── modelo_recomendador.pt    # Pesos treinados do modelo PyTorch
-├── preprocess.pkl            # Preprocessador salvo (scaler + encoder)
-│
-└── treinos_completo.csv      # Base de dados com lista de exercícios
-
+    U[Usuario] --> API[API ASP.NET]
+    API --> DB[(PostgreSQL)]
+    API --> FA[FastAPI - Comunicacao]
+    FA --> IA[Modelo PyTorch (Python)]
+    IA --> FA
+    FA --> API
+    API --> U
 ````
 
----
+Fluxo resumido:
 
-## 🏋️ Como Funciona
-
-1. **Coleta de Dados**
-   - Os perfis e feedbacks de treinos são salvos no banco `TreinamentoIA`, nas tabelas:
-     - `perfil`
-     - `exercicios`
-     - `feedback`
-     - `feedback_exercicio` (contém os relacionamentos feedback → perfil → exercício)
-
-2. **Pré-processamento**
-   - As colunas numéricas (idade, peso, altura) são normalizadas com `MinMaxScaler`.
-   - As categóricas (nível de atividade, objetivo, gênero, experiência e exercício) são codificadas com `OneHotEncoder`.
-
-3. **Treinamento**
-   - O modelo é uma **rede neural densa (feedforward)**:
-     ```
-     [Input] → 64 → 32 → 16 → [Sigmoid Output]
-     ```
-   - Função de perda: `BCELoss`
-   - Otimizador: `Adam`
-   - Treinamento com **validação (80/20)** e **Early Stopping** automático.
-
-4. **Recomendações**
-   - O modelo gera uma **probabilidade de recomendação (0–1)** para cada exercício.
-   - O sistema exibe as sugestões acima de um `threshold` de 0.5, mas pode ser configurado para sem.
+1. O usuário interage com o a API (futuramente front react).
+2. A API ASP.NET grava/consulta o PostgreSQL.
+3. Quando é preciso gerar recomendações, a API ASP.NET envia um perfil para a **FastAPI**.
+4. A FastAPI prepara os dados e envia para o módulo de IA em PyTorch.
+5. A IA retorna as probabilidades de recomendação para cada exercício.
+6. A API responde ao cliente com a recomendação final.
 
 ---
 
-## 🧩 Exemplo de Uso
+## 🧠 IA (Python + PyTorch)
 
-### 🔹 Treinar o Modelo
-```bash
-python TreinarIA2.py
-````
+A pasta **`IA LifeFit/`** contém:
 
-Saída esperada:
-
-```
-Iniciando Treino
-
-Época 0000 | Loss Treino: 0.57 | Loss Val: 0.56 | Acurácia: 97.5%
-Época 0800 | Loss Treino: 0.01 | Loss Val: 0.02 | Acurácia: 99.1%
-Parada ativada na época 1200. Melhor Loss de Validação: 0.018432
-
-Treinamento finalizado!
-Modelo e preprocessador salvos com sucesso!
-```
+* Rede neural em PyTorch
+* Normalização manual (mín–máx)
+* One-Hot Encoding manual
+* Scripts de treino/teste
+* Servidor FastAPI para exposição do modelo
 
 ---
 
-### 🔹 Testar Recomendações
+## 🛠 Tecnologias
 
-```python
-perfil_teste = {
-    "idade": 21,          # anos
-    "peso": 127,          # kg
-    "altura": 185,        # cm
-    "nivel_atividade": 1, # (ex: 0=sedentário, 1=leve, 2=moderado, 3=intenso)
-    "objetivo": 0,        # (ex: 0=perda de peso, 1=manutenção, 2=ganho muscular)
-    "genero": 0,          # (ex: 0=masculino, 1=feminino)
-    "experiencia": 1      # (ex: 0=iniciante, 1=intermediário, 2=avançado)
-}
-
-Exercícios recomendados:
- - bicicleta ergométrica: 94.9% de recomendação
- - mountain climbers: 94.2% de recomendação
- - polichinelo: 91.0% de recomendação
- - remada curvada: 49.6% de recomendação
- - burpee: 47.3% de recomendação
- - elevação de quadril: 46.4% de recomendação
- - supino reto: 26.0% de recomendação
- - agachamento livre: 9.7% de recomendação
- - abdominal tradicional: 8.8% de recomendação
- - leg press: 8.5% de recomendação
-```
-
----
-
-## 📊 Estrutura do Banco de Dados
-
-```sql
-CREATE TABLE exercicios (
-	id SERIAL PRIMARY KEY NOT NULL,
-	nome VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE perfil (
-	id SERIAL PRIMARY KEY NOT NULL,
-	idade INT NOT NULL,
-	peso INT NOT NULL,
-	altura INT NOT NULL,
-	nivel_atividade INT NOT NULL,
-	objetivo INT NOT NULL,
-	genero INT NOT NULL,
-	experiencia INT NOT NULL
-);
-
-CREATE TABLE feedback (
-    id SERIAL PRIMARY KEY,
-    id_perfil INT NOT NULL,
-    objetivo INT NOT NULL,
-    CONSTRAINT fk_perfil FOREIGN KEY (id_perfil)
-        REFERENCES perfil (id)
-        ON DELETE CASCADE
-);
-
-CREATE TABLE feedback_exercicio (
-    id_feedback INT NOT NULL,
-    id_exercicio INT NOT NULL,
-    avaliacao INT NOT NULL,
-    PRIMARY KEY (id_feedback, id_exercicio),
-    FOREIGN KEY (id_feedback) REFERENCES feedback (id) ON DELETE CASCADE,
-    FOREIGN KEY (id_exercicio) REFERENCES exercicios (id) ON DELETE CASCADE
-);
-```
-
----
-
-## 🧠 Lógica de Aprendizado
-
-Cada linha da tabela `dadinhos` representa um **exemplo de treino**:
-
-```
-perfil → exercício → avaliação (0 = não recomendado | 1 = recomendado)
-```
-
-Com o tempo, quanto mais feedbacks forem inseridos, mais o modelo aprende os padrões:
-
-* perfis com sobrepeso → priorizam cardio e alta intensidade;
-* perfis magros → priorizam força e compostos (supino, agachamento etc.);
-* perfis iniciantes → recebem sugestões seguras e progressivas.
-
----
-
-## 🧩 Funcionalidades em Desenvolvimento
-
-* [ ] Interface Web com React e ASP.NET API CRUD.
-* [ ] Feedback contínuo para retreinar o modelo em tempo real.
-* [ ] Módulos extras como sugestões de alimentação e intensidade de treinos.
-
----
-
-## 💻 Requisitos
+### Módulo IA (Python)
 
 * Python 3.11+
-* PostgreSQL 14+
-* CUDA Toolkit (opcional)
-* Bibliotecas:
+* PyTorch
+* FastAPI
+* Uvicorn (servidor)
+* Estruturas próprias de normalização e encoding
+  *(nenhuma dependência scikit-learn)*
 
-  ```bash
-  pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu126
-  ```
+### API ASP.NET (C#)
+
+* ASP.NET Core
+* Banco de dados PostgreSQL
+* Comunicação HTTP com a FastAPI
 
 ---
 
-## 🧾 Licença
+## 📁 Estrutura do Repositório
 
-Este projeto está sob a licença MIT.
-Sinta-se livre para usar, estudar e aprimorar o IA LifeFit 🚀
+```text
+LifeFit/
+├── IA LifeFit/
+│   ├── FastAPI/                # Ponte entre a API ASP.NET e a IA
+│   ├── Modelinho.py            # Rede neural em PyTorch
+│   ├── Mapeamento.py           # Dados gerais
+│   ├── treino.py               # Treinador do modelo
+│   ├── teste.py                # Testes de recomendação
+│   ├── modelo_recomendador.pt  # Pesos salvos
+│   └── ...
+│
+├── Fitzinho/                   # Projeto API asp net
+│   └── Fitzinho/
+│       ├── Controllers/
+│       ├── Models/
+│       ├── Services/
+│       └── ...
+│
+├── LICENSE
+└── README.md
+```
+---
+
+## 🤖 Como Rodar a IA
+
+### 1. Instalar dependências
+
+```bash
+pip install torch fastapi uvicorn
+```
+
+### 2. Rodar o servidor FastAPI
+
+```bash
+uvicorn Main:app --reload
+```
+
+A FastAPI expõe endpoints como:
+
+```
+POST /recomendar
+```
+
+Que recebem um perfil e retornam uma lista de exercícios com probabilidades.
+
+### 3. Treinar o modelo
+
+```bash
+python treino.py
+```
+
+Isso gera:
+
+* `modelo_recomendador.pt`
+
+---
+
+## 💻 ASP.NET C# – API + PostgreSQL
+
+A API ASP.NET é responsável por:
+
+* cadastrar perfis
+* registrar treinos
+* salvar feedbacks
+* consultar exercícios
+* preparar o payload da IA
+* enviar a requisição HTTP para a FastAPI
+
+Exemplo simplificado de fluxo:
+
+```csharp
+var perfil = GetPerfil(id);
+var response = await http.PostAsJsonAsync("http://localhost:8000/recomendar", perfil);
+var recomendacoes = await response.Content.ReadFromJsonAsync<List<ExercicioRecomendado>>();
+```
+
+---
+
+## 🔮 Próximos Passos
+
+* Treinamento incremental com novos feedbacks
+* Front-end (React ou MAUI)
+
+---
+
+## 📄 Licença
+
+MIT License – disponível em `LICENSE`.
+---
