@@ -35,6 +35,7 @@ class UserProfile(BaseModel):
 class RecommendationResponse(BaseModel):
     rank: int
     exercicio_nome: str
+    exercicio_id: int
     grupo_muscular: str
     match_score: str
 
@@ -116,6 +117,7 @@ def recommend_workout(perfil: UserProfile):
                 resultados.append({
                     "rank": i + 1,
                     "exercicio_nome": nome,
+                    "exercicio_id": id_ex,
                     "grupo_muscular": grupo,
                     "match_score": f"{min(score * 100, 99.9):.1f}%"
                 })
@@ -128,4 +130,4 @@ def recommend_workout(perfil: UserProfile):
 
 # Bloco para rodar via terminal diretamente
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000) 
