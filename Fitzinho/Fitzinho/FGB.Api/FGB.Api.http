@@ -1,0 +1,6 @@
+@FGB.Api_HostAddress = http://localhost:5277
+
+GET {{FGB.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

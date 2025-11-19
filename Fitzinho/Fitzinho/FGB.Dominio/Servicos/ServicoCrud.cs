@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FGB.Dominio.Servicos
 {
-    public class ServicoCrud<T> : ServicoConsulta<T>  where T : EntidadeBase
+    public class ServicoCrud<T> : ServicoConsulta<T> where T : EntidadeBase
     {
         public event MergeHandler<T> PosMerge;
         public event MergeHandler<T> PreMerge;
@@ -23,6 +23,7 @@ namespace FGB.Dominio.Servicos
         {
             return !Mensagens.HasErro();
         }
+
         public virtual bool Validacoes(T entidade)
         {
             if (entidade == null)
@@ -33,77 +34,148 @@ namespace FGB.Dominio.Servicos
             return Valida(entidade);
         }
 
-        public virtual bool Inclui(T[] entidades, Func<bool> processo)
+        public virtual bool Inclui(T[] entidades)
         {
-            if (entidades.Length == 0)
-                return true;
-
-            if(!entidades.All(Validacoes))
-                return false;
-            foreach (var entidade in entidades)
+            try
             {
-                entidade.CriadoEm = DateTime.UtcNow;
-                entidade.UltimaAlteracao = DateTime.UtcNow;
-            }
-            var sucesso = processo();
+                if (entidades.Length == 0)
+                    return true;
 
-            return sucesso;
+                if (!entidades.All(Validacoes))
+                    return false;
+
+                foreach (var entidade in entidades)
+                {
+                    entidade.CriadoEm = DateTime.UtcNow;
+                    entidade.UltimaAlteracao = DateTime.UtcNow;
+                    _repo.Inclui(entidade);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Mensagens.Add("Erro ao incluir entidade: " + ex.Message);
+                return false;
+            }
         }
 
-        public virtual async Task<bool> IncluiAsync(T[] entidades, Func<Task<bool>> processo)
+        public virtual async Task<bool> IncluiAsync(T[] entidades)
         {
-            if (entidades.Length == 0)
-                return true;
-            if (!entidades.All(Validacoes))
-                return false;
-
-            foreach (var entidade in entidades)
+            try
             {
-                entidade.CriadoEm = DateTime.UtcNow;
-                entidade.UltimaAlteracao = DateTime.UtcNow;
+                if (entidades.Length == 0)
+                    return true;
+                if (!entidades.All(Validacoes))
+                    return false;
+                foreach (var entidade in entidades)
+                {
+                    entidade.CriadoEm = DateTime.UtcNow;
+                    entidade.UltimaAlteracao = DateTime.UtcNow;
+                    await _repo.IncluiAsync(entidade);
+                }
+                return true;
             }
-
-            var sucesso = await processo();
-            return sucesso;
+            catch (Exception ex)
+            {
+                Mensagens.Add("Erro ao incluir entidade: " + ex.Message);
+                return false;
+            }
         }
 
         public virtual T Merge(T entidade)
         {
-            if (!Validacoes(entidade))
-                return entidade;
+            try
+            {
+                if (!Validacoes(entidade))
+                    return entidade;
 
-            entidade.UltimaAlteracao = DateTime.UtcNow;
-            var resultado = _repo.Merge(entidade);
-            return resultado;
+                entidade.UltimaAlteracao = DateTime.UtcNow;
+                var resultado = _repo.Merge(entidade);
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                Mensagens.Add("Erro ao atualizar entidade: " + ex.Message);
+                return null;
+            }
         }
 
         public virtual async Task<T> MergeAsync(T entidade)
         {
-            if (!Validacoes(entidade))
-                return entidade;
-            entidade.UltimaAlteracao = DateTime.UtcNow;
-            var resultado = await _repo.MergeAsync(entidade);
-            return resultado;
+            try
+            {
+                if (!Validacoes(entidade))
+                    return entidade;
+
+                entidade.UltimaAlteracao = DateTime.UtcNow;
+                var resultado = await _repo.MergeAsync(entidade);
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                Mensagens.Add("Erro ao atualizar entidade: " + ex.Message);
+                return null;
+            }
         }
 
-        public virtual bool Exclui(T[] entidades, Func<bool> processo)
+        public virtual T Exclui(long id)
         {
-            if (entidades.Length == 0)
-                return true;
-            if (!entidades.All(Validacoes))
-                return false;
-            var sucesso = processo();
-            return sucesso;
+            var entidade = Retorna(id);
+            if (entidade == null)
+            {
+                Mensagens.Add("Registro não encontrado.");
+                return null;
+            }
+
+            var sucesso = Exclui(new[] { entidade });
+
+            return sucesso ? entidade : null;
         }
 
-        public virtual async Task<bool> ExcluiAsync(T[] entidades, Func<Task<bool>> processo)
+        public virtual bool Exclui(T[] entidades)
         {
-            if (entidades.Length == 0)
+            try
+            {
+                if (entidades.Length == 0)
+                    return true;
+
+                if (!entidades.All(Validacoes))
+                    return false;
+
+                foreach (var entidade in entidades)
+                {
+                    _repo.Exclui(entidade);
+                }
+
                 return true;
-            if (!entidades.All(Validacoes))
+            }
+            catch (Exception ex)
+            {
+                Mensagens.Add("Erro ao excluir entidade: " + ex.Message);
                 return false;
-            var sucesso = await processo();
-            return sucesso;
+            }
+        }
+
+        public virtual async Task<bool> ExcluiAsync(T[] entidades)
+        {
+            try
+            {
+                if (entidades.Length == 0)
+                    return true;
+
+                if (!entidades.All(Validacoes))
+                    return false;
+                foreach (var entidade in entidades)
+                {
+                    await _repo.ExcluiAsync(entidade);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Mensagens.Add("Erro ao excluir entidade: " + ex.Message);
+                return false;
+            }
         }
     }
 }

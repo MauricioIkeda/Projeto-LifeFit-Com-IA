@@ -20,9 +20,9 @@ namespace FGB.Dominio.Servicos
             return _repo.Retorna<T>(id);
         }
 
-        public virtual T RetornaAsync(long id)
+        public virtual async Task<T> RetornaAsync(long id)
         {
-            return _repo.RetornaAsync<T>(id).Result;
+            return await _repo.RetornaAsync<T>(id);
         }
 
         public virtual IQueryable<T> Consulta()

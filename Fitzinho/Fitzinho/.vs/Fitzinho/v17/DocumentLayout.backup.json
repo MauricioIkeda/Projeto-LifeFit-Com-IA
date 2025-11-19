@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3E69EBDB-26EC-429D-B13C-BA56977FCD41}|FGB.Api\\FGB.Api.csproj|c:\\github\\lifefit\\fitzinho\\fitzinho\\fgb.api\\controllers\\consultacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E69EBDB-26EC-429D-B13C-BA56977FCD41}|FGB.Api\\FGB.Api.csproj|solutionrelative:fgb.api\\controllers\\consultacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E69EBDB-26EC-429D-B13C-BA56977FCD41}|FGB.Api\\FGB.Api.csproj|c:\\github\\lifefit\\fitzinho\\fitzinho\\fgb.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3E69EBDB-26EC-429D-B13C-BA56977FCD41}|FGB.Api\\FGB.Api.csproj|solutionrelative:fgb.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AC598434-987C-49AF-9A00-5CE7E9200126}|FGB.Dominio\\FGB.Dominio.csproj|c:\\github\\lifefit\\fitzinho\\fitzinho\\fgb.dominio\\servicos\\servicocrud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC598434-987C-49AF-9A00-5CE7E9200126}|FGB.Dominio\\FGB.Dominio.csproj|solutionrelative:fgb.dominio\\servicos\\servicocrud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -58,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,12 +82,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": "ConsultaController.cs",
+              "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Api\\Controllers\\ConsultaController.cs",
+              "RelativeDocumentMoniker": "FGB.Api\\Controllers\\ConsultaController.cs",
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Api\\Controllers\\ConsultaController.cs",
+              "RelativeToolTip": "FGB.Api\\Controllers\\ConsultaController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBsAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T14:09:31.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "FGB.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "FGB.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-19T14:07:07.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "DeleteInfo.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Eventos\\DeleteInfo.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Eventos\\DeleteInfo.cs",
-              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Eventos\\DeleteInfo.cs*",
-              "RelativeToolTip": "FGB.Dominio\\Eventos\\DeleteInfo.cs*",
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Eventos\\DeleteInfo.cs",
+              "RelativeToolTip": "FGB.Dominio\\Eventos\\DeleteInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T12:24:20.079Z",
@@ -87,12 +121,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "IncluiInfo.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Eventos\\IncluiInfo.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Eventos\\IncluiInfo.cs",
-              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Eventos\\IncluiInfo.cs*",
-              "RelativeToolTip": "FGB.Dominio\\Eventos\\IncluiInfo.cs*",
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Eventos\\IncluiInfo.cs",
+              "RelativeToolTip": "FGB.Dominio\\Eventos\\IncluiInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T12:17:50.059Z",
@@ -100,12 +134,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "MergeInfo.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Eventos\\MergeInfo.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Eventos\\MergeInfo.cs",
-              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Eventos\\MergeInfo.cs*",
-              "RelativeToolTip": "FGB.Dominio\\Eventos\\MergeInfo.cs*",
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Eventos\\MergeInfo.cs",
+              "RelativeToolTip": "FGB.Dominio\\Eventos\\MergeInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T12:07:27.826Z",
@@ -113,20 +147,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ServicoCrud.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Servicos\\ServicoCrud.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Servicos\\ServicoCrud.cs",
-              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Servicos\\ServicoCrud.cs*",
-              "RelativeToolTip": "FGB.Dominio\\Servicos\\ServicoCrud.cs*",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAiwF4AAAAlAAAAAAAAAA==",
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Servicos\\ServicoCrud.cs",
+              "RelativeToolTip": "FGB.Dominio\\Servicos\\ServicoCrud.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAA2wFQAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T12:00:04.972Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ServicoConsulta.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Servicos\\ServicoConsulta.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Servicos\\ServicoConsulta.cs",
@@ -139,12 +173,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ListaMensagens.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Servicos\\ListaMensagens.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Servicos\\ListaMensagens.cs",
-              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Servicos\\ListaMensagens.cs*",
-              "RelativeToolTip": "FGB.Dominio\\Servicos\\ListaMensagens.cs*",
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Servicos\\ListaMensagens.cs",
+              "RelativeToolTip": "FGB.Dominio\\Servicos\\ListaMensagens.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T11:48:11.485Z",
@@ -152,20 +186,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Repositorio.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Repositorios\\Repositorio.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Repositorios\\Repositorio.cs",
               "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Repositorios\\Repositorio.cs",
               "RelativeToolTip": "FGB.Dominio\\Repositorios\\Repositorio.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAiwC4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAA2wC4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T18:20:11.283Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "IRepositorio.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Repositorios\\IRepositorios\\IRepositorio.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Repositorios\\IRepositorios\\IRepositorio.cs",
@@ -178,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "EntidadeBase.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Entidades\\EntidadeBase.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Entidades\\EntidadeBase.cs",
@@ -191,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "LifeFit.Dominio.csproj",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\LifeFit.Dominio\\LifeFit.Dominio.csproj",
               "RelativeDocumentMoniker": "LifeFit.Dominio\\LifeFit.Dominio.csproj",
@@ -204,12 +238,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "MensagemRetorno.cs",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Entidades\\MensagemRetorno.cs",
               "RelativeDocumentMoniker": "FGB.Dominio\\Entidades\\MensagemRetorno.cs",
-              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Entidades\\MensagemRetorno.cs*",
-              "RelativeToolTip": "FGB.Dominio\\Entidades\\MensagemRetorno.cs*",
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\Entidades\\MensagemRetorno.cs",
+              "RelativeToolTip": "FGB.Dominio\\Entidades\\MensagemRetorno.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAYwBwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T11:46:55.564Z",
@@ -217,15 +251,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "FGB.Dominio.csproj",
               "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\FGB.Dominio.csproj",
               "RelativeDocumentMoniker": "FGB.Dominio\\FGB.Dominio.csproj",
               "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Dominio\\FGB.Dominio.csproj",
               "RelativeToolTip": "FGB.Dominio\\FGB.Dominio.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAwwBoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAwwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-18T17:14:00.488Z"
+              "WhenOpened": "2025-11-18T17:14:00.488Z",
+              "EditorCaption": ""
             }
           ]
         }
