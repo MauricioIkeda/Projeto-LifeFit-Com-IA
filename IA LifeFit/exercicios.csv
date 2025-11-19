@@ -1,0 +1,41 @@
+id,nome,grupo_muscular
+0,Supino Reto Barra,Peito
+1,Supino Inclinado Halteres,Peito
+2,Crucifixo Maquina,Peito
+3,Flexão de Braço,Peito
+4,Crossover Polia Alta,Peito
+5,Pullover,Peito
+6,Puxada Alta Aberta,Costas
+7,Remada Curvada Barra,Costas
+8,Remada Baixa Triangulo,Costas
+9,Serrote Unilateral,Costas
+10,Levantamento Terra,Costas
+11,Barra Fixa,Costas
+12,Agachamento Livre,Pernas
+13,Leg Press 45,Pernas
+14,Cadeira Extensora,Pernas
+15,Mesa Flexora,Pernas
+16,Stiff,Pernas
+17,Afundo com Halteres,Pernas
+18,Panturrilha em Pé,Pernas
+19,Desenvolvimento Militar,Ombros
+20,Elevação Lateral,Ombros
+21,Elevação Frontal,Ombros
+22,Crucifixo Inverso,Ombros
+23,Remada Alta,Ombros
+24,Rosca Direta Barra,Biceps
+25,Rosca Alternada,Biceps
+26,Rosca Martelo,Biceps
+27,Rosca Scott,Biceps
+28,Triceps Pulley Corda,Triceps
+29,Triceps Testa,Triceps
+30,Triceps Banco,Triceps
+31,Triceps Frances,Triceps
+32,Corrida Esteira,Cardio/Geral
+33,Bicicleta Ergonometrica,Cardio/Geral
+34,Eliptico,Cardio/Geral
+35,Pular Corda,Cardio/Geral
+36,Burpees,Cardio/Geral
+37,Polichinelos,Cardio/Geral
+38,Prancha Abdominal,Cardio/Geral
+39,Abdominal Crunch,Cardio/Geral
