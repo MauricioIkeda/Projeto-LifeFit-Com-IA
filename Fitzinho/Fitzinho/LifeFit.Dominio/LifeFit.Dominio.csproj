@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entidades\" />
     <Folder Include="Mapeamentos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FGB.Dominio\FGB.Dominio.csproj" />
   </ItemGroup>
 
 </Project>
