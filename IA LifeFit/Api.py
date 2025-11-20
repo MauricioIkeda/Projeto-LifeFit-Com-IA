@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import Literal, List
 import torch
@@ -19,6 +20,14 @@ app = FastAPI(
     title="LifeFit AI API",
     description="Recomenda exercícios personalizados usando Depp Learning, treinado com dados sintéticos, porem, depois refinado com feedback real dos usuários.",
     version="1.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # Permite que qualquer site acesse (em produção, coloque a URL do site)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Modelo de Entrada (Validação com Pydantic)
