@@ -8,15 +8,22 @@ namespace LifeFit.Dominio.ObjetosValor
 {
     public enum SexoEnum
     {
-        Masculino = 1,
-        Feminino = 2
+        Masculino = 0,
+        Feminino = 1
     }
 
     public enum NivelAtividadeFisica
     {
-        Sedentario = 1,
-        Leve = 2,
-        Moderado = 3,
-        Alto = 4
+        Sedentario = 0,
+        Leve = 1,
+        Moderado = 2,
+        Alto = 3
+    }
+
+    public enum ObjetivoUsuario
+    {
+        PerdaPeso = 0,
+        GanhoMassaMuscular = 1,
+        ManutencaoPeso = 2
     }
 }
