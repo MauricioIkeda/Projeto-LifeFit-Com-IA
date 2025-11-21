@@ -179,9 +179,15 @@
               "Title": "UsuarioEnum.cs",
               "DocumentMoniker": "V:\\git\\LifeFit\\Fitzinho\\Fitzinho\\LifeFit.Dominio\\ObjetosValor\\UsuarioEnum.cs",
               "RelativeDocumentMoniker": "LifeFit.Dominio\\ObjetosValor\\UsuarioEnum.cs",
+<<<<<<< HEAD
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\LifeFit.Dominio\\ObjetosValor\\UsuarioEnum.cs",
+              "RelativeToolTip": "LifeFit.Dominio\\ObjetosValor\\UsuarioEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+=======
               "ToolTip": "V:\\git\\LifeFit\\Fitzinho\\Fitzinho\\LifeFit.Dominio\\ObjetosValor\\UsuarioEnum.cs*",
               "RelativeToolTip": "LifeFit.Dominio\\ObjetosValor\\UsuarioEnum.cs*",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
+>>>>>>> c7a0d01159bc378b0c386f2203577d8d2f0c0891
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T17:47:09.206Z",
               "EditorCaption": ""
@@ -192,9 +198,15 @@
               "Title": "Usuario.cs",
               "DocumentMoniker": "V:\\git\\LifeFit\\Fitzinho\\Fitzinho\\LifeFit.Dominio\\Entidades\\Usuario.cs",
               "RelativeDocumentMoniker": "LifeFit.Dominio\\Entidades\\Usuario.cs",
+<<<<<<< HEAD
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\LifeFit.Dominio\\Entidades\\Usuario.cs",
+              "RelativeToolTip": "LifeFit.Dominio\\Entidades\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+=======
               "ToolTip": "V:\\git\\LifeFit\\Fitzinho\\Fitzinho\\LifeFit.Dominio\\Entidades\\Usuario.cs*",
               "RelativeToolTip": "LifeFit.Dominio\\Entidades\\Usuario.cs*",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
+>>>>>>> c7a0d01159bc378b0c386f2203577d8d2f0c0891
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T17:38:27.906Z",
               "EditorCaption": ""
@@ -231,6 +243,17 @@
             {
               "$type": "Document",
               "DocumentIndex": 12,
+<<<<<<< HEAD
+              "Title": "LifeFit.Dominio.csproj",
+              "DocumentMoniker": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\LifeFit.Dominio\\LifeFit.Dominio.csproj",
+              "RelativeDocumentMoniker": "LifeFit.Dominio\\LifeFit.Dominio.csproj",
+              "ToolTip": "C:\\Github\\LifeFit\\Fitzinho\\Fitzinho\\LifeFit.Dominio\\LifeFit.Dominio.csproj",
+              "RelativeToolTip": "LifeFit.Dominio\\LifeFit.Dominio.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-18T17:08:23.043Z",
+              "EditorCaption": ""
+=======
               "Title": "AutoMapperProfiles.cs",
               "DocumentMoniker": "V:\\git\\LifeFit\\Fitzinho\\Fitzinho\\FGB.Api\\Injecoes\\AutoMapperProfiles.cs",
               "RelativeDocumentMoniker": "FGB.Api\\Injecoes\\AutoMapperProfiles.cs",
@@ -239,6 +262,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T17:09:55Z"
+>>>>>>> c7a0d01159bc378b0c386f2203577d8d2f0c0891
             },
             {
               "$type": "Document",
