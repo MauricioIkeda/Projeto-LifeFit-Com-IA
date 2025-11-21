@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mapeamentos\" />
+    <Compile Remove="Mapeamentos\**" />
+    <EmbeddedResource Remove="Mapeamentos\**" />
+    <None Remove="Mapeamentos\**" />
   </ItemGroup>
 
   <ItemGroup>

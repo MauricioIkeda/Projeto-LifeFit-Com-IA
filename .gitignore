@@ -398,3 +398,61 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+###############################
+# IGNORAR BIN E OBJ (ROBUSTO)
+###############################
+
+# Ignora qualquer pasta chamada bin ou obj em qualquer nível
+**/bin/
+**/obj/
+
+# Ignora variações comuns
+[Bb]in/
+[Oo]bj/
+
+# Ignorar também pastas de build alternativas geradas por extensões
+artifacts/
+build/
+bld/
+out/
+[Aa]pp_Data/
+
+###############################
+# VS E .NET (ESSENCIAL)
+###############################
+.vs/
+*.user
+*.suo
+*.userosscache
+*.rsuser
+
+# Cache do Visual Studio
+.vscode/
+
+# Arquivos de log
+*.log
+*.tlog
+
+###############################
+# PACKAGES
+###############################
+**/packages/*
+!**/packages/build/
+
+###############################
+# OUTROS IGNORÁVEIS
+###############################
+*.tmp
+*.cache
+*.pdb
+*.mdb
+*.dbmdl
+*.ldf
+*.mdf
+*.ndf
+*.coverage
+*.coveragexml
+*.nupkg
+node_modules/
+
