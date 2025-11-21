@@ -4,7 +4,9 @@ import os
 GRUPOS_MUSCULARES = ["Peito", "Costas", "Pernas", "Ombros", "Biceps", "Triceps", "Cardio/Geral"]
 OBJETIVOS = ["Perda de Peso", "Manutenção", "Hipertrofia"]
 ATIVIDADES = ["Sedentario", "Leve", "Moderado", "Alto"]
+
 ARQUIVO_CSV = "exercicios.csv"
+
 ID_GENERO = {0: "Masculino", 1: "Feminino"}
 ID_ATIVIDADE = {0: "Sedentario", 1: "Leve", 2: "Moderado", 3: "Alto"}
 ID_OBJETIVO = {0: "Perda de Peso", 1: "Manutenção", 2: "Hipertrofia"}
