@@ -1,13 +1,16 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
-from typing import Literal, List
+from typing import Literal, List, Union
 import torch
 import uvicorn
 import os
 
 from Modelo import Modelinho
 from Mapeamento import (
+    ID_ATIVIDADE,
+    ID_GENERO,
+    ID_OBJETIVO,
     TAMANHO_ENTRADA, 
     NUM_EXERCICIOS, 
     LISTA_EXERCICIOS, 
@@ -40,12 +43,22 @@ class UserProfile(BaseModel):
     objetivo: Literal["Perda de Peso", "Manutenção", "Hipertrofia"]
     foco_muscular: str
 
+class UserProfileInt(BaseModel):
+    idade: int = Field(..., ge=10, le=100, description="Idade do usuário")
+    peso: float = Field(..., gt=0, description="Peso em KG")
+    altura: float = Field(..., gt=0, description="Altura em CM")
+    genero: Literal[0, 1]
+    atividade: Literal[0, 1, 2, 3]
+    objetivo: Literal[0, 1, 2]
+    foco_muscular: Literal[0, 1, 2, 3, 4, 5, 6]
+
 # Modelo de Saída (Resposta formatada)
 class RecommendationResponse(BaseModel):
     rank: int
     exercicio_nome: str
     exercicio_id: int
     grupo_muscular: str
+    grupo_muscular_id: int
     match_score: str
 
 # Carrega o modelo treinado na inicialização da API
@@ -76,11 +89,27 @@ def load_model():
 
 # Endpoint de Recomendação
 @app.post("/api/v1/recommend", response_model=List[RecommendationResponse])
-def recommend_workout(perfil: UserProfile):
+def recommend_workout(perfil : Union[UserProfile, UserProfileInt]):
     """
     Recebe os dados do usuário e retorna o Top 3 exercícios.
     """
     global modelo_ia
+
+    if isinstance(perfil, UserProfileInt):
+        try:
+            perfil = UserProfile(
+                idade=perfil.idade,
+                peso=perfil.peso,
+                altura=perfil.altura,
+                genero=ID_GENERO[perfil.genero],
+                atividade=ID_ATIVIDADE[perfil.atividade],
+                objetivo=ID_OBJETIVO[perfil.objetivo],
+                foco_muscular=GRUPOS_MUSCULARES[perfil.foco_muscular]
+            )
+        except IndexError:
+            raise HTTPException(status_code=400, detail="Índice inválido enviado no UserProfileInt.")
+        except KeyError as e:
+            raise HTTPException(status_code=400, detail=f"Valor inválido para campo: {e}")
     
     # Valida foco muscular para ver se é válido
     if perfil.foco_muscular not in GRUPOS_MUSCULARES:
@@ -118,9 +147,11 @@ def recommend_workout(perfil: UserProfile):
                 if exercicio_encontrado:
                     nome = exercicio_encontrado['nome']
                     grupo = exercicio_encontrado['grupo']
+                    grupo_id = GRUPOS_MUSCULARES.index(grupo)
                 else:
                     nome = "Desconhecido"
                     grupo = "N/A"
+                    grupo_id = -1
 
                 # Formata a resposta
                 resultados.append({
@@ -128,6 +159,7 @@ def recommend_workout(perfil: UserProfile):
                     "exercicio_nome": nome,
                     "exercicio_id": id_ex,
                     "grupo_muscular": grupo,
+                    "grupo_muscular_id": grupo_id,
                     "match_score": f"{min(score * 100, 99.9):.1f}%"
                 })
             
