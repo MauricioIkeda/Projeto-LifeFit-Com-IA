@@ -16,4 +16,9 @@
     <ProjectReference Include="..\FGB.Dominio\FGB.Dominio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTO\Get\" />
+    <Folder Include="DTO\Post\" />
+  </ItemGroup>
+
 </Project>
