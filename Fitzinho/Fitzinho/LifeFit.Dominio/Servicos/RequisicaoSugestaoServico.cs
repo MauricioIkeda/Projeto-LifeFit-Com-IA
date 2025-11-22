@@ -5,13 +5,13 @@ using LifeFit.Dominio.Entidades;
 using LifeFit.Dominio.Servicos;
 using System.Net.Http.Json;
 
-public class RequisicaoSugestaoService : ServicoConsulta<RequisicaoSugestao>
+public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
 {
     private readonly HttpClient _http;
     private readonly SugestaoServico _sugestaoServico;
     private readonly string apiIaUrl = "http://localhost:8000/api/v1/recommend";
 
-    public RequisicaoSugestaoService(IRepositorio repo, SugestaoServico sugestaoServico)
+    public RequisicaoSugestaoServico(IRepositorio repo, SugestaoServico sugestaoServico)
         : base(repo)
     {
         _sugestaoServico = sugestaoServico;

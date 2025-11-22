@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LifeFit.Dominio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7cb19965e016d0b324ee6f663b9d8acd51b98e6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcf2a660eb444b514f90853e90f3821579399153")]
 [assembly: System.Reflection.AssemblyProductAttribute("LifeFit.Dominio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LifeFit.Dominio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

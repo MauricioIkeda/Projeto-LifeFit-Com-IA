@@ -1,14 +1,10 @@
-﻿using LifeFit.Dominio.ObjetosValor;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using FGB.Dominio.Entidades;
+using LifeFit.Dominio.ObjetosValor;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace LifeFit.Dominio.Entidades
 {
-    public class Feedback
+    public class Feedback : EntidadeBase
     {
         public FeedBackEnum Avaliacao { get; set; }
         public long sugestaoId { get; set; }

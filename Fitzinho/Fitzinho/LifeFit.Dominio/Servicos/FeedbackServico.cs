@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FGB.Dominio.Repositorios.IRepositorios;
+using FGB.Dominio.Servicos;
+using LifeFit.Dominio.Entidades;
 
 namespace LifeFit.Dominio.Servicos
 {
-    internal class FeedbackServico
+    public class FeedbackServico : ServicoCrud<Feedback>
     {
+        public FeedbackServico(IRepositorio repo) : base(repo)
+        {
+        }
+
     }
 }
