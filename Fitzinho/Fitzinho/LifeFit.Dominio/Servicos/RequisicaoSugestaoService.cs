@@ -3,9 +3,7 @@ using FGB.Dominio.Servicos;
 using LifeFit.Dominio.DTO.PythonApi;
 using LifeFit.Dominio.Entidades;
 using LifeFit.Dominio.Servicos;
-using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text.Json;
 
 public class RequisicaoSugestaoService : ServicoConsulta<RequisicaoSugestao>
 {
@@ -56,3 +54,9 @@ public class RequisicaoSugestaoService : ServicoConsulta<RequisicaoSugestao>
     }
 
 }
+
+//modelBuilder.Entity<RequisicaoSugestao>()
+//    .HasMany(r => r.Sugestoes)
+//    .WithOne(s => s.Requisicao)
+//    .HasForeignKey(s => s.RequisicaoId)
+//    .OnDelete(DeleteBehavior.Cascade);

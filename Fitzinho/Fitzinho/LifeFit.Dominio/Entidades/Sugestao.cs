@@ -5,6 +5,7 @@ namespace LifeFit.Dominio.Entidades
 {
     public class Sugestao : EntidadeBase
     {
+        
         public long PerfilUsuarioId { get; set; }
         [JsonIgnore]
         public PerfilUsuario PerfilUsuario { get; set; }
