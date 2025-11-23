@@ -27,7 +27,7 @@ def enconde_profile(profile : dict) -> torch.tensor:
         obj_hot[OBJETIVOS.index(profile["objetivo"])] = 1
     inputs.extend(obj_hot)
     
-    foco_hot = [0] * len(GRUPOS_MUSCULARES)
+    foco_hot = [0] * (len(GRUPOS_MUSCULARES)-1)
     if profile["foco_muscular"] in GRUPOS_MUSCULARES: 
         foco_hot[GRUPOS_MUSCULARES.index(profile["foco_muscular"])] = 1
     else: 
