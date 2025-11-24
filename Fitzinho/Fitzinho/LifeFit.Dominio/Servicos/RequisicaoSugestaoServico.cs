@@ -72,7 +72,7 @@ public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
                 return new Sugestao
                 {
                     ExercicioId = exercicio.Id,
-                    Exercicio = exercicio,
+                    Exercicio = null,
                     PontosPerfil = r.match_score,
                     PerfilUsuario = perfilUsuario
                 };

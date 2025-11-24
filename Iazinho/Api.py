@@ -91,6 +91,7 @@ def recommend_workout(perfil: Union[UserProfile, UserProfileInt]):
             perfil = UserProfile(
                 idade=perfil.idade,
                 peso=perfil.peso,
+                altura=perfil.altura,
                 genero=ID_GENERO[perfil.genero],
                 atividade=ID_ATIVIDADE[perfil.atividade],
                 objetivo=ID_OBJETIVO[perfil.objetivo],

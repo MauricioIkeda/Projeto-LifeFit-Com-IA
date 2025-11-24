@@ -1,12 +1,8 @@
 import { Pressable, Text, View, StyleSheet} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { router } from "expo-router";
-import { useState } from "react";
-import { UserProfile } from "@/models/models";
 
 export default function Index() {
-  const [userProfile, setUserProfile] = useState<Partial<UserProfile>>({});
-
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
@@ -62,7 +58,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 8,
 
-    marginBottom: 100,
+    marginBottom: 200,
   },
   contentContainer: {
     alignItems: "center",
