@@ -23,7 +23,7 @@ public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
         {
             peso = perfilUsuario.Peso,
             altura = perfilUsuario.Altura,
-            idade = DateTime.Now.Year - perfilUsuario.DataNascimento.Year,
+            idade = perfilUsuario.Idade,
             genero = perfilUsuario.Sexo,
             atividade = perfilUsuario.NivelAtividadeFisica,
             objetivo = perfilUsuario.Objetivo,

@@ -9,7 +9,7 @@ namespace LifeFit.Dominio.Entidades
         public SexoEnum Sexo { get; set; }
         public float Peso { get; set; }
         public int Altura { get; set; } // Em cm
-        public DateTime DataNascimento { get; set; }
+        public int Idade { get; set; }
         public NivelAtividadeFisica NivelAtividadeFisica { get; set; }
         public ObjetivoUsuario Objetivo { get; set; }
         public FocoMuscular Foco { get; set; }
