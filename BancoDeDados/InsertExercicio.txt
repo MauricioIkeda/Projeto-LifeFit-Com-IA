@@ -1,0 +1,47 @@
+INSERT INTO "Exercicios"  ("Nome", "FocoMuscular") VALUES
+(0, 0),  -- Supino Reto Barra / Peito
+(1, 0),  -- Supino Inclinado Halteres / Peito
+(2, 0),  -- Crucifixo Maquina / Peito
+(3, 0),  -- Flexão de Braço / Peito
+(4, 0),  -- Crossover Polia Alta / Peito
+(5, 0),  -- Pullover / Peito
+
+(6, 1),  -- Puxada Alta Aberta / Costas
+(7, 1),  -- Remada Curvada Barra / Costas
+(8, 1),  -- Remada Baixa Triangulo / Costas
+(9, 1),  -- Serrote Unilateral / Costas
+(10, 1), -- Levantamento Terra / Costas
+(11, 1), -- Barra Fixa / Costas
+
+(12, 2), -- Agachamento Livre / Pernas
+(13, 2), -- Leg Press 45 / Pernas
+(14, 2), -- Cadeira Extensora / Pernas
+(15, 2), -- Mesa Flexora / Pernas
+(16, 2), -- Stiff / Pernas
+(17, 2), -- Afundo com Halteres / Pernas
+(18, 2), -- Panturrilha em Pé / Pernas
+
+(19, 3), -- Desenvolvimento Militar / Ombros
+(20, 3), -- Elevação Lateral / Ombros
+(21, 3), -- Elevação Frontal / Ombros
+(22, 3), -- Crucifixo Inverso / Ombros
+(23, 3), -- Remada Alta / Ombros
+
+(24, 4), -- Rosca Direta Barra / Bíceps
+(25, 4), -- Rosca Alternada / Bíceps
+(26, 4), -- Rosca Martelo / Bíceps
+(27, 4), -- Rosca Scott / Bíceps
+
+(28, 5), -- Tríceps Pulley Corda / Tríceps
+(29, 5), -- Tríceps Testa / Tríceps
+(30, 5), -- Tríceps Banco / Tríceps
+(31, 5), -- Tríceps Francês / Tríceps
+
+(32, 6), -- Corrida Esteira / Cardio Geral
+(33, 6), -- Bicicleta Ergonométrica / Cardio Geral
+(34, 6), -- Elíptico / Cardio Geral
+(35, 6), -- Pular Corda / Cardio Geral
+(36, 6), -- Burpees / Cardio Geral
+(37, 6), -- Polichinelos / Cardio Geral
+(38, 6), -- Prancha Abdominal / Cardio Geral
+(39, 6); -- Abdominal Crunch / Cardio Geral
