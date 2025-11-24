@@ -38,6 +38,7 @@ export interface UserData {
 }
 
 export interface FinalProfile {
+    nome: string;
     sexo: number;
     idade: number;
     altura: number;

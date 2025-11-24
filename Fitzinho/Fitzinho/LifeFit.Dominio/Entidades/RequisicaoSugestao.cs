@@ -9,7 +9,6 @@ namespace LifeFit.Dominio.Entidades
         public long PerfilUsuarioId { get; set; }
         [JsonIgnore]
         public PerfilUsuario PerfilUsuario { get; set; }
-        [JsonIgnore]
         public List<Sugestao> Sugestoes { get; set; }
         public FocoMuscular FocoMuscular { get; set; }
         public string CodigoRetorno { get; set; }

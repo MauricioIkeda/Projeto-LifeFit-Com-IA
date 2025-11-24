@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import type { UserData, FinalProfile } from '../models/index';
 import { Sexo, NivelAtividade, Objetivo, Foco } from '../models/index';
+import { api } from '../services/api';
 
 const AnimatedInput = (props: React.ComponentProps<'input'>) => {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -31,25 +32,26 @@ export default function ProfileWizard() {
     const handleGoalSelection = (selectedGoal: number) => {
         updateData('objetivo', selectedGoal);
         setDirection(1);
-        if (selectedGoal === Objetivo.GANHO_MASSA) { 
-            setStep(6); 
-        } else { 
-            updateData('foco', Foco.GERAL_CARDIO); 
-            setStep(7); 
+        if (selectedGoal === Objetivo.GANHO_MASSA) {
+            setStep(6);
+        } else {
+            updateData('foco', Foco.GERAL_CARDIO);
+            setStep(7);
         }
     };
 
     const handleBack = () => {
         setDirection(-1);
-        if (step === 7 && formData.objetivo !== Objetivo.GANHO_MASSA) { 
-            setStep(5); 
-        } else { 
-            setStep(prev => prev - 1); 
+        if (step === 7 && formData.objetivo !== Objetivo.GANHO_MASSA) {
+            setStep(5);
+        } else {
+            setStep(prev => prev - 1);
         }
     };
 
-    const handleFinalSubmit = () => {
+    async function handleFinalSubmit() {
         const profileNumerico: FinalProfile = {
+            nome: "Usuário Exemplo",
             sexo: formData.sexo || 0,
             idade: parseInt(formData.idade || '0'),
             altura: parseFloat(formData.altura || '0'),
@@ -58,8 +60,9 @@ export default function ProfileWizard() {
             objetivo: formData.objetivo || 1,
             foco: formData.foco || 1
         };
-        
-        console.log("DADOS PRONTOS PARA IA:", profileNumerico);
+
+        const response = await api.post(`/RequisicaoSugestao/GerarSugestoes`, profileNumerico);
+        console.log('Sugestões geradas:', response.data);
     };
 
     const variants = {
@@ -132,10 +135,10 @@ export default function ProfileWizard() {
                     )}
 
                     <div className="flex-1 flex flex-col justify-start pt-24 md:justify-center md:pt-12 p-6 md:p-12 max-w-md mx-auto w-full transition-all duration-500">
-                        
-                         {/* HEADER MOBILE */}
-                         <div className="md:hidden flex flex-col items-center mb-8 relative h-24 justify-end shrink-0">
-                             <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 ${currentInfo.bg} rounded-full blur-[50px] opacity-20 transition-colors duration-500`} />
+
+                        {/* HEADER MOBILE */}
+                        <div className="md:hidden flex flex-col items-center mb-8 relative h-24 justify-end shrink-0">
+                            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 ${currentInfo.bg} rounded-full blur-[50px] opacity-20 transition-colors duration-500`} />
                             <div className="relative w-16 h-16 flex items-center justify-center mb-2">
                                 <AnimatePresence mode="popLayout">
                                     <motion.div key={`mob-icon-${step}`} variants={iconVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.2 }} className={`p-3 rounded-full bg-zinc-800/50 border border-white/5 ${currentInfo.color}`}>
@@ -295,7 +298,7 @@ export default function ProfileWizard() {
                                                     <div className="flex justify-between items-center">
                                                         <span className="text-zinc-500">Foco</span>
                                                         <span className="text-blue-400 bg-blue-400/10 px-3 py-1 rounded-full font-bold uppercase text-xs">
-                                                             {Object.keys(Foco).find(key => Foco[key as keyof typeof Foco] === formData.foco)}
+                                                            {Object.keys(Foco).find(key => Foco[key as keyof typeof Foco] === formData.foco)}
                                                         </span>
                                                     </div>
                                                 )}
