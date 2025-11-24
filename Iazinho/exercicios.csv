@@ -31,11 +31,11 @@ id,nome,grupo_muscular
 29,Triceps Testa,Triceps
 30,Triceps Banco,Triceps
 31,Triceps Frances,Triceps
-32,Corrida Esteira,Cardio/Geral
-33,Bicicleta Ergonometrica,Cardio/Geral
-34,Eliptico,Cardio/Geral
-35,Pular Corda,Cardio/Geral
-36,Burpees,Cardio/Geral
-37,Polichinelos,Cardio/Geral
-38,Prancha Abdominal,Cardio/Geral
-39,Abdominal Crunch,Cardio/Geral
+32,Corrida Esteira,Cardio
+33,Bicicleta Ergonometrica,Cardio
+34,Eliptico,Cardio
+35,Pular Corda,Cardio
+36,Burpees,Cardio
+37,Polichinelos,Cardio
+38,Prancha Abdominal,Cardio
+39,Abdominal Crunch,Cardio

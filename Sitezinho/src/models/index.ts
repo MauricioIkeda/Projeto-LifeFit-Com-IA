@@ -1,30 +1,30 @@
 export const Sexo = {
-    MASCULINO: 1,
-    FEMININO: 2,
+    MASCULINO: 0,
+    FEMININO: 1,
 } as const;
 
 export const NivelAtividade = {
-    SEDENTARIO: 1,
-    LEVE: 2,
-    MODERADO: 3,
-    ALTO: 4,
+    SEDENTARIO: 0,
+    LEVE: 1,
+    MODERADO: 2,
+    ALTO: 3,
 } as const;
 
 export const Objetivo = {
-    PERDA_PESO: 1,
+    PERDA_PESO: 0,
+    SAUDE: 1,
     GANHO_MASSA: 2,
-    SAUDE: 3,
 } as const;
 
 export const Foco = {
-    PEITO: 1,
-    COSTAS: 2,
-    PERNAS: 3,
-    OMBROS: 4,
-    BICEPS: 5,
-    TRICEPS: 6,
-    FULL_BODY: 7,
-    GERAL_CARDIO: 8
+    PEITO: 0,
+    COSTAS: 1,
+    PERNAS: 2,
+    OMBROS: 3,
+    BICEPS: 4,
+    TRICEPS: 5,
+    FULL_BODY: 6,
+    GERAL_CARDIO: 7
 } as const;
 
 export interface UserData {
@@ -46,4 +46,20 @@ export interface FinalProfile {
     nivelAtividadeFisica: number;
     objetivo: number;
     foco: number;
+}
+
+export interface Sugestoes {
+    perfilUsuarioId: number;
+    exercicioId: number;
+    requisicaoId: number;
+    pontosPerfil: number;
+    id: number;
+}
+
+export interface RequisicaoSugestao {
+    perfilUsuarioId: number;
+    sugestoes: Sugestoes[];
+    focoMuscular: number;
+    codigoRetorno: number;
+    id: number;
 }

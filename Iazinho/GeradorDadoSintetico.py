@@ -23,7 +23,7 @@ def GeradorDadosSinteticos(quantidade=5000):
         
         # Se não encontrar nenhum exercício específico, usa os de "Cardio/Geral"
         if not ids_ex_correspondentes:
-            ids_ex_correspondentes = [ex['id'] for ex in LISTA_EXERCICIOS if ex['grupo'] == "Cardio/Geral"]
+            ids_ex_correspondentes = [ex['id'] for ex in LISTA_EXERCICIOS if ex['grupo'] == "Cardio"]
             
         # Adiciona nos dados um treino positivo para os exercícios correspondentes
         for id_ex in ids_ex_correspondentes:

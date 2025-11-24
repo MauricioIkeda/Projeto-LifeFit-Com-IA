@@ -4,9 +4,10 @@ import {
     ChevronRight, ChevronLeft, User, Ruler, Weight, CheckCircle,
     Calendar, Target, Dumbbell, Flame, BicepsFlexed, Activity
 } from 'lucide-react';
-import type { UserData, FinalProfile } from '../models/index';
+import type { UserData, FinalProfile, RequisicaoSugestao } from '../models/index';
 import { Sexo, NivelAtividade, Objetivo, Foco } from '../models/index';
 import { api } from '../services/api';
+import { useNavigate } from 'react-router';
 
 const AnimatedInput = (props: React.ComponentProps<'input'>) => {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -22,6 +23,8 @@ export default function ProfileWizard() {
     const [direction, setDirection] = useState(0);
 
     const [formData, setFormData] = useState<Partial<UserData>>({});
+
+    const navigate = useNavigate();
 
     const updateData = (field: keyof UserData, value: string | number) => {
         setFormData(prev => ({ ...prev, [field]: value }));
@@ -62,7 +65,8 @@ export default function ProfileWizard() {
         };
 
         const response = await api.post(`/RequisicaoSugestao/GerarSugestoes`, profileNumerico);
-        console.log('Sugestões geradas:', response.data);
+        const requisicaoId : RequisicaoSugestao = response.data;
+        navigate('/dashboard', { state: { perfilUsuario: formData, sugestoes: requisicaoId.sugestoes } });
     };
 
     const variants = {

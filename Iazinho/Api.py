@@ -103,6 +103,12 @@ def recommend_workout(perfil: Union[UserProfile, UserProfileInt]):
     if modelo_ia is None:
         raise HTTPException(status_code=503, detail="Modelo não carregado.")
 
+    if(perfil.foco_muscular == "Cardio" and perfil.objetivo == "Hipertrofia"):
+        perfil.foco_muscular = "Geral"
+
+    if perfil.objetivo == "Perda de Peso":
+        perfil.foco_muscular = "Cardio"
+
     QTD_POR_GRUPO_GERAL = 3
 
     try:
