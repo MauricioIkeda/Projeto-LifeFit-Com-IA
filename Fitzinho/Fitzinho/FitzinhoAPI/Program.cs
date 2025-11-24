@@ -1,4 +1,5 @@
 using FGB.Api.Injecoes;
+using LifeFit.Dominio.Data;
 using LifeFit.Dominio.Servicos;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,10 +21,11 @@ builder.Services.AddTransient<ExercicioServico>();
 builder.Services.AddTransient<FeedbackServico>();
 builder.Services.AddTransient<SugestaoServico>();
 
-builder.Services.AddDbContext<DbContext>(options =>
+builder.Services.AddDbContext<DbContext, DataContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
 
 
 var app = builder.Build();
