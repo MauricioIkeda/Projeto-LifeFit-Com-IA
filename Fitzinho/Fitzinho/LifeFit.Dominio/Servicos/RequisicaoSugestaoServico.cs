@@ -2,19 +2,18 @@
 using FGB.Dominio.Servicos;
 using LifeFit.Dominio.DTO.PythonApi;
 using LifeFit.Dominio.Entidades;
+using LifeFit.Dominio.ObjetosValor;
 using LifeFit.Dominio.Servicos;
 using System.Net.Http.Json;
 
 public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
 {
     private readonly HttpClient _http;
-    private readonly SugestaoServico _sugestaoServico;
     private readonly string apiIaUrl = "http://localhost:8000/api/v1/recommend";
 
     public RequisicaoSugestaoServico(IRepositorio repo, SugestaoServico sugestaoServico)
         : base(repo)
     {
-        _sugestaoServico = sugestaoServico;
         _http = new HttpClient();
     }
 
@@ -32,19 +31,51 @@ public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
         };
 
         var resposta = await _http.PostAsJsonAsync(apiIaUrl, requisicao);
-        resposta.EnsureSuccessStatusCode();
 
+        // 🚨 Tratamento de erro antes de tentar ler JSON
+        if (!resposta.IsSuccessStatusCode)
+        {
+            var codigo = (int)resposta.StatusCode;
+            var motivo = resposta.ReasonPhrase ?? "Erro desconhecido";
+
+            var requisicaoErro = new RequisicaoSugestao
+            {
+                PerfilUsuario = perfilUsuario,
+                FocoMuscular = perfilUsuario.Foco,
+                CodigoRetorno = $"{codigo} - {motivo}",
+                Sugestoes = new List<Sugestao>()
+            };
+
+            _repo.Inclui(requisicaoErro);
+
+            return requisicaoErro;
+        }
+
+        // Aqui é 200 e alguma coisa
         var sugestoesResp = await resposta.Content.ReadFromJsonAsync<List<SugestaoResponse>>();
 
         var requisicaoEntidade = new RequisicaoSugestao
         {
             PerfilUsuario = perfilUsuario,
             FocoMuscular = perfilUsuario.Foco,
-            Sugestoes = sugestoesResp.Select(r => new Sugestao
+            CodigoRetorno = "200",
+            Sugestoes = sugestoesResp.Select(r =>
             {
-                ExercicioId = r.exercicio_id,
-                PontosPerfil = r.match_score,
-                PerfilUsuario = perfilUsuario
+                var enumExercicio = (ExercicioEnum)r.exercicio_id;
+
+                var exercicio = _repo.Consulta<Exercicio>()
+                    .FirstOrDefault(e => e.Nome == enumExercicio);
+
+                if (exercicio == null)
+                    throw new Exception($"Exercício não encontrado para enum: {enumExercicio}");
+
+                return new Sugestao
+                {
+                    ExercicioId = exercicio.Id,
+                    Exercicio = exercicio,
+                    PontosPerfil = r.match_score,
+                    PerfilUsuario = perfilUsuario
+                };
             }).ToList()
         };
 
@@ -54,9 +85,3 @@ public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
     }
 
 }
-
-//modelBuilder.Entity<RequisicaoSugestao>()
-//    .HasMany(r => r.Sugestoes)
-//    .WithOne(s => s.Requisicao)
-//    .HasForeignKey(s => s.RequisicaoId)
-//    .OnDelete(DeleteBehavior.Cascade);

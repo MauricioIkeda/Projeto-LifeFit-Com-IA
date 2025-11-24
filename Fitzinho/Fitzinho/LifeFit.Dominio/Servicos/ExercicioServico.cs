@@ -15,6 +15,14 @@ namespace LifeFit.Dominio.Servicos
         {
             if (!base.Valida(entidade))
                 return false;
+            var existe = _repo.Consulta<Exercicio>()
+                .Any(x => x.Nome == entidade.Nome && x.Id != entidade.Id);
+
+            if (existe)
+            {
+                Mensagens.Add("Já existe um exercício cadastrado com esse nome.");
+                return false;
+            }
             try
             {
                 entidade.FocoMuscular = GetFoco(entidade.Nome);
@@ -27,6 +35,7 @@ namespace LifeFit.Dominio.Servicos
 
             return true;
         }
+
 
         public static FocoMuscular GetFoco(ExercicioEnum exercicio)
         {
