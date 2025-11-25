@@ -1,47 +1,49 @@
-INSERT INTO "Exercicios"  ("Nome", "FocoMuscular") VALUES
-(0, 0),  -- Supino Reto Barra / Peito
-(1, 0),  -- Supino Inclinado Halteres / Peito
-(2, 0),  -- Crucifixo Maquina / Peito
-(3, 0),  -- Flexão de Braço / Peito
-(4, 0),  -- Crossover Polia Alta / Peito
-(5, 0),  -- Pullover / Peito
+TRUNCATE TABLE "Exercicios" RESTART IDENTITY;
 
-(6, 1),  -- Puxada Alta Aberta / Costas
-(7, 1),  -- Remada Curvada Barra / Costas
-(8, 1),  -- Remada Baixa Triangulo / Costas
-(9, 1),  -- Serrote Unilateral / Costas
-(10, 1), -- Levantamento Terra / Costas
-(11, 1), -- Barra Fixa / Costas
+INSERT INTO "Exercicios" ("Enum", "Nome", "FocoMuscular", "FocoMuscularNome") VALUES
+(0,  'Supino Reto Barra', 0, 'Peito'),
+(1,  'Supino Inclinado Halteres', 0, 'Peito'),
+(2,  'Crucifixo Maquina', 0, 'Peito'),
+(3,  'Flexão de Braço', 0, 'Peito'),
+(4,  'Crossover Polia Alta', 0, 'Peito'),
+(5,  'Pullover', 0, 'Peito'),
 
-(12, 2), -- Agachamento Livre / Pernas
-(13, 2), -- Leg Press 45 / Pernas
-(14, 2), -- Cadeira Extensora / Pernas
-(15, 2), -- Mesa Flexora / Pernas
-(16, 2), -- Stiff / Pernas
-(17, 2), -- Afundo com Halteres / Pernas
-(18, 2), -- Panturrilha em Pé / Pernas
+(6,  'Puxada Alta Aberta', 1, 'Costas'),
+(7,  'Remada Curvada Barra', 1, 'Costas'),
+(8,  'Remada Baixa Triangulo', 1, 'Costas'),
+(9,  'Serrote Unilateral', 1, 'Costas'),
+(10, 'Levantamento Terra', 1, 'Costas'),
+(11, 'Barra Fixa', 1, 'Costas'),
 
-(19, 3), -- Desenvolvimento Militar / Ombros
-(20, 3), -- Elevação Lateral / Ombros
-(21, 3), -- Elevação Frontal / Ombros
-(22, 3), -- Crucifixo Inverso / Ombros
-(23, 3), -- Remada Alta / Ombros
+(12, 'Agachamento Livre', 2, 'Pernas'),
+(13, 'Leg Press 45', 2, 'Pernas'),
+(14, 'Cadeira Extensora', 2, 'Pernas'),
+(15, 'Mesa Flexora', 2, 'Pernas'),
+(16, 'Stiff', 2, 'Pernas'),
+(17, 'Afundo com Halteres', 2, 'Pernas'),
+(18, 'Panturrilha em Pé', 2, 'Pernas'),
 
-(24, 4), -- Rosca Direta Barra / Bíceps
-(25, 4), -- Rosca Alternada / Bíceps
-(26, 4), -- Rosca Martelo / Bíceps
-(27, 4), -- Rosca Scott / Bíceps
+(19, 'Desenvolvimento Militar', 3, 'Ombros'),
+(20, 'Elevação Lateral', 3, 'Ombros'),
+(21, 'Elevação Frontal', 3, 'Ombros'),
+(22, 'Crucifixo Inverso', 3, 'Ombros'),
+(23, 'Remada Alta', 3, 'Ombros'),
 
-(28, 5), -- Tríceps Pulley Corda / Tríceps
-(29, 5), -- Tríceps Testa / Tríceps
-(30, 5), -- Tríceps Banco / Tríceps
-(31, 5), -- Tríceps Francês / Tríceps
+(24, 'Rosca Direta Barra', 4, 'Biceps'),
+(25, 'Rosca Alternada', 4, 'Biceps'),
+(26, 'Rosca Martelo', 4, 'Biceps'),
+(27, 'Rosca Scott', 4, 'Biceps'),
 
-(32, 6), -- Corrida Esteira / Cardio Geral
-(33, 6), -- Bicicleta Ergonométrica / Cardio Geral
-(34, 6), -- Elíptico / Cardio Geral
-(35, 6), -- Pular Corda / Cardio Geral
-(36, 6), -- Burpees / Cardio Geral
-(37, 6), -- Polichinelos / Cardio Geral
-(38, 6), -- Prancha Abdominal / Cardio Geral
-(39, 6); -- Abdominal Crunch / Cardio Geral
+(28, 'Tríceps Pulley Corda', 5, 'Triceps'),
+(29, 'Tríceps Testa', 5, 'Triceps'),
+(30, 'Tríceps Banco', 5, 'Triceps'),
+(31, 'Tríceps Francês', 5, 'Triceps'),
+
+(32, 'Corrida Esteira', 6, 'Cardio'),
+(33, 'Bicicleta Ergonométrica', 6, 'Cardio'),
+(34, 'Elíptico', 6, 'Cardio'),
+(35, 'Pular Corda', 6, 'Cardio'),
+(36, 'Burpees', 6, 'Cardio'),
+(37, 'Polichinelos', 6, 'Cardio'),
+(38, 'Prancha Abdominal', 6, 'Cardio'),
+(39, 'Abdominal Crunch', 6, 'Cardio');
