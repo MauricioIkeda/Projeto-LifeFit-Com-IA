@@ -1,20 +1,10 @@
-﻿using FGB.Dominio.Eventos;
-using FGB.Dominio.Entidades;
+﻿using FGB.Dominio.Entidades;
 using FGB.Dominio.Repositorios.IRepositorios;
-using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace FGB.Dominio.Servicos
 {
     public class ServicoCrud<T> : ServicoConsulta<T> where T : EntidadeBase
     {
-        public event MergeHandler<T> PosMerge;
-        public event MergeHandler<T> PreMerge;
-        public event DeleteHandler<T> PosDelete;
-        public event DeleteHandler<T> PreDelete;
-        public event IncluiHandler<T> PosInclui;
-        public event IncluiHandler<T> PreInclui;
-
         public ServicoCrud(IRepositorio repo) : base(repo)
         {
         }

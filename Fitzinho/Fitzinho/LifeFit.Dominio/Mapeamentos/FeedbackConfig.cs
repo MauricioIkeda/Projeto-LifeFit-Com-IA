@@ -14,6 +14,10 @@ namespace LifeFit.Dominio.Mapeamentos
                 .WithMany()
                 .HasForeignKey(x => x.sugestaoId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            //Uniquiciadade
+            builder.HasIndex(x => x.sugestaoId)
+                .IsUnique();
         }
     }
 }

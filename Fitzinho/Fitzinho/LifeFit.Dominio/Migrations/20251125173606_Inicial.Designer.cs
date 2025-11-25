@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LifeFit.Dominio.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20251125003015_Inicial")]
+    [Migration("20251125173606_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -43,11 +43,9 @@ namespace LifeFit.Dominio.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("FocoMuscularNome")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nome")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("UltimaAlteracao")
@@ -80,7 +78,8 @@ namespace LifeFit.Dominio.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("sugestaoId");
+                    b.HasIndex("sugestaoId")
+                        .IsUnique();
 
                     b.ToTable("Feedbacks");
                 });
@@ -109,7 +108,6 @@ namespace LifeFit.Dominio.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Nome")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Objetivo")
@@ -138,7 +136,6 @@ namespace LifeFit.Dominio.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<string>("CodigoRetorno")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("CriadoEm")
@@ -174,11 +171,16 @@ namespace LifeFit.Dominio.Migrations
                     b.Property<long>("ExercicioId")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("FocoMuscular")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NomeExercicio")
+                        .HasColumnType("text");
+
                     b.Property<long>("PerfilUsuarioId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("PontosPerfil")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Rank")
