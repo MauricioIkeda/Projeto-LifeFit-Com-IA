@@ -49,9 +49,12 @@ export interface FinalProfile {
 }
 
 export interface Sugestoes {
+    rank: number;
     perfilUsuarioId: number;
     exercicioId: number;
     requisicaoId: number;
+    nomeExercicio: string;
+    focoMuscular: string;
     pontosPerfil: number;
     id: number;
 }
@@ -62,4 +65,9 @@ export interface RequisicaoSugestao {
     focoMuscular: number;
     codigoRetorno: number;
     id: number;
+}
+
+export interface FeedbackSugestao {
+    avaliacao: number;
+    sugestaoId: number;
 }

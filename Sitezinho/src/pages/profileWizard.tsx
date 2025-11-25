@@ -55,13 +55,13 @@ export default function ProfileWizard() {
     async function handleFinalSubmit() {
         const profileNumerico: FinalProfile = {
             nome: "Usuário Exemplo",
-            sexo: formData.sexo || 0,
+            sexo: formData.sexo ?? 0,
             idade: parseInt(formData.idade || '0'),
             altura: parseFloat(formData.altura || '0'),
             peso: parseFloat(formData.peso || '0'),
-            nivelAtividadeFisica: formData.nivelAtividadeFisica || 1,
-            objetivo: formData.objetivo || 1,
-            foco: formData.foco || 1
+            nivelAtividadeFisica: formData.nivelAtividadeFisica ?? 1,
+            objetivo: formData.objetivo ?? 1,
+            foco: formData.foco ?? 1
         };
 
         const response = await api.post(`/RequisicaoSugestao/GerarSugestoes`, profileNumerico);

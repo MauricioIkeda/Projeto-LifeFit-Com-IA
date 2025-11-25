@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Clock, ThumbsUp, ThumbsDown, Zap, Send, Dumbbell, Target, Trophy, BarChart, RefreshCw } from 'lucide-react';
 import { Foco, Objetivo, type Sugestoes, type UserData } from '../models';
 import { Navigate, useLocation } from 'react-router';
+import { api } from '../services/api';
 
 export default function Dashboard() {
   const location = useLocation();
@@ -22,13 +23,34 @@ export default function Dashboard() {
 
   const allRated = state.sugestoes.every(r => feedbacks[r.id] !== undefined);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setIsSending(true);
-    setTimeout(() => {
-      setIsSending(false);
+
+    try {
+      const requests = Object.entries(feedbacks).map(async ([sugestaoId, avaliacao]) => {
+
+        const sugestaoOriginal = state.sugestoes.find(s => s.id === Number(sugestaoId));
+
+        if (!sugestaoOriginal) return null;
+
+        const payload = {
+          sugestaoId: Number(sugestaoId),
+          avaliacao: avaliacao,
+        };
+
+        return api.post('/Feedback', payload);
+      });
+
+      await Promise.all(requests);
+
       setIsFinished(true);
-      alert("Feedback enviado com sucesso! (Simulação)");
-    }, 1500);
+
+    } catch (error) {
+      console.error("Erro ao enviar feedbacks:", error);
+      alert("Houve um erro ao salvar suas avaliações. Tente novamente.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   // Reseta a demo
@@ -165,15 +187,15 @@ export default function Dashboard() {
                   <div>
                     <div className="flex justify-between items-start mb-3">
                       <div className="bg-zinc-900 border border-zinc-700 w-8 h-8 flex items-center justify-center rounded-lg text-zinc-400 text-xs font-bold shadow-sm group-hover:border-zinc-600 transition-colors">
-                        #{"Implementar rank"}
+                        #{exercise.rank}
                       </div>
                       <span className={`text-[10px] font-bold px-2 py-1 rounded bg-zinc-900 border border-zinc-800 ${accentColor} flex items-center gap-1`}>
                         <BarChart size={10} /> Match: {exercise.pontosPerfil}
                       </span>
                     </div>
-                    <h3 className="font-bold text-base md:text-lg text-white mb-1 leading-tight">{"Implementar nome"}</h3>
+                    <h3 className="font-bold text-base md:text-lg text-white mb-1 leading-tight">{exercise.nomeExercicio}</h3>
                     <div className="flex items-center gap-2 text-zinc-500 text-[10px] md:text-xs uppercase tracking-wider mb-4 font-medium">
-                      <Dumbbell size={12} /> {"Implementar grupo muscular"}
+                      <Dumbbell size={12} /> {exercise.focoMuscular}
                     </div>
                   </div>
 
