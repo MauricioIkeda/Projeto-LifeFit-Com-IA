@@ -1,4 +1,5 @@
 ﻿using FGB.Dominio.Entidades;
+using FGB.Dominio.Validacao;
 using System.Text.Json.Serialization;
 
 namespace LifeFit.Dominio.Entidades

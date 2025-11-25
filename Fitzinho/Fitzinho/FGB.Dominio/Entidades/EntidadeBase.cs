@@ -1,6 +1,6 @@
 ﻿namespace FGB.Dominio.Entidades
 {
-    public class EntidadeBase
+    public abstract class EntidadeBase
     {
         public long Id { get; set; }
 

@@ -18,10 +18,10 @@ namespace LifeFit.Dominio.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nome = table.Column<string>(type: "text", nullable: false),
+                    Nome = table.Column<string>(type: "text", nullable: true),
                     Enum = table.Column<int>(type: "integer", nullable: false),
                     FocoMuscular = table.Column<int>(type: "integer", nullable: false),
-                    FocoMuscularNome = table.Column<string>(type: "text", nullable: false),
+                    FocoMuscularNome = table.Column<string>(type: "text", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     UltimaAlteracao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -36,7 +36,7 @@ namespace LifeFit.Dominio.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nome = table.Column<string>(type: "text", nullable: false),
+                    Nome = table.Column<string>(type: "text", nullable: true),
                     Sexo = table.Column<int>(type: "integer", nullable: false),
                     Peso = table.Column<float>(type: "real", nullable: false),
                     Altura = table.Column<int>(type: "integer", nullable: false),
@@ -60,7 +60,7 @@ namespace LifeFit.Dominio.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     PerfilUsuarioId = table.Column<long>(type: "bigint", nullable: false),
                     FocoMuscular = table.Column<int>(type: "integer", nullable: false),
-                    CodigoRetorno = table.Column<string>(type: "text", nullable: false),
+                    CodigoRetorno = table.Column<string>(type: "text", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     UltimaAlteracao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -85,7 +85,9 @@ namespace LifeFit.Dominio.Migrations
                     PerfilUsuarioId = table.Column<long>(type: "bigint", nullable: false),
                     ExercicioId = table.Column<long>(type: "bigint", nullable: false),
                     RequisicaoId = table.Column<long>(type: "bigint", nullable: false),
-                    PontosPerfil = table.Column<string>(type: "text", nullable: false),
+                    NomeExercicio = table.Column<string>(type: "text", nullable: true),
+                    FocoMuscular = table.Column<string>(type: "text", nullable: true),
+                    PontosPerfil = table.Column<string>(type: "text", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     UltimaAlteracao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -137,7 +139,8 @@ namespace LifeFit.Dominio.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Feedbacks_sugestaoId",
                 table: "Feedbacks",
-                column: "sugestaoId");
+                column: "sugestaoId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_RequisicoesSugestao_PerfilUsuarioId",
