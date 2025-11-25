@@ -1,5 +1,3 @@
-TRUNCATE TABLE "Exercicios" RESTART IDENTITY;
-
 INSERT INTO "Exercicios" ("Enum", "Nome", "FocoMuscular", "FocoMuscularNome") VALUES
 (0,  'Supino Reto Barra', 0, 'Peito'),
 (1,  'Supino Inclinado Halteres', 0, 'Peito'),
