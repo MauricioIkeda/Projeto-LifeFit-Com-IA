@@ -24,52 +24,53 @@ public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
 
     public async Task<RequisicaoSugestao> FazerRequisicao(PerfilUsuario perfilUsuario)
     {
+        var perfilBanco = _repo.Consulta<PerfilUsuario>()
+                               .FirstOrDefault(p => p.Id == perfilUsuario.Id);
+        if (perfilBanco == null) {
+            perfilBanco = perfilUsuario;
+            _repo.Inclui(perfilBanco);
+        }
+
         var requisicao = new SugestaoRequest
         {
-            peso = perfilUsuario.Peso,
-            altura = perfilUsuario.Altura,
-            idade = perfilUsuario.Idade,
-            genero = perfilUsuario.Sexo,
-            atividade = perfilUsuario.NivelAtividadeFisica,
-            objetivo = perfilUsuario.Objetivo,
-            foco_muscular = perfilUsuario.Foco
+            peso = perfilBanco.Peso,
+            altura = perfilBanco.Altura,
+            idade = perfilBanco.Idade,
+            genero = perfilBanco.Sexo,
+            atividade = perfilBanco.NivelAtividadeFisica,
+            objetivo = perfilBanco.Objetivo,
+            foco_muscular = perfilBanco.Foco
         };
 
         var resposta = await _http.PostAsJsonAsync(apiIaUrl, requisicao);
 
-        // 🚨 Tratamento de erro antes de tentar ler JSON
         if (!resposta.IsSuccessStatusCode)
         {
-            var codigo = (int)resposta.StatusCode;
-            var motivo = resposta.ReasonPhrase ?? "Erro desconhecido";
-
             var requisicaoErro = new RequisicaoSugestao
             {
-                PerfilUsuario = perfilUsuario,
-                FocoMuscular = perfilUsuario.Foco,
-                CodigoRetorno = $"{codigo} - {motivo}",
+                PerfilUsuarioId = perfilBanco.Id,
+                FocoMuscular = perfilBanco.Foco,
+                CodigoRetorno = $"{(int)resposta.StatusCode} - {resposta.ReasonPhrase}",
                 Sugestoes = new List<Sugestao>()
             };
 
             _repo.Inclui(requisicaoErro);
-
             return requisicaoErro;
         }
 
-        // Aqui é 200 e alguma coisa
         var sugestoesResp = await resposta.Content.ReadFromJsonAsync<List<SugestaoResponse>>();
 
         var requisicaoEntidade = new RequisicaoSugestao
         {
-            PerfilUsuario = perfilUsuario,
-            FocoMuscular = perfilUsuario.Foco,
+            PerfilUsuarioId = perfilBanco.Id,
+            FocoMuscular = perfilBanco.Foco,
             CodigoRetorno = "200",
             Sugestoes = sugestoesResp.Select(r =>
             {
                 var enumExercicio = (ExercicioEnum)r.exercicio_id;
 
                 var exercicio = _repo.Consulta<Exercicio>()
-                    .FirstOrDefault(e => e.Enum == enumExercicio);
+                                     .FirstOrDefault(e => e.Enum == enumExercicio);
 
                 if (exercicio == null)
                     throw new Exception($"Exercício não encontrado para enum: {enumExercicio}");
@@ -81,7 +82,7 @@ public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
                     NomeExercicio = exercicio.Nome,
                     FocoMuscular = exercicio.FocoMuscularNome,
                     PontosPerfil = r.match_score,
-                    PerfilUsuario = perfilUsuario
+                    PerfilUsuarioId = perfilBanco.Id
                 };
             }).ToList()
         };
@@ -90,5 +91,4 @@ public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
 
         return requisicaoEntidade;
     }
-
 }
