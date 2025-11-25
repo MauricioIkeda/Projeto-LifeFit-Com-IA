@@ -10,7 +10,6 @@ namespace LifeFit.Dominio.Entidades
         [JsonIgnore]
         public PerfilUsuario PerfilUsuario { get; set; }
         public long ExercicioId { get; set; }
-        [JsonIgnore]
         public Exercicio Exercicio { get; set; }
         public long RequisicaoId { get; set; }
         [JsonIgnore]
