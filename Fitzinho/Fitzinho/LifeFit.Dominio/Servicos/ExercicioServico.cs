@@ -2,6 +2,8 @@
 using FGB.Dominio.Servicos;
 using LifeFit.Dominio.Entidades;
 using LifeFit.Dominio.ObjetosValor;
+using System;
+using System.Linq;
 
 namespace LifeFit.Dominio.Servicos
 {
@@ -16,7 +18,7 @@ namespace LifeFit.Dominio.Servicos
             if (!base.Valida(entidade))
                 return false;
             var existe = _repo.Consulta<Exercicio>()
-                .Any(x => x.Nome == entidade.Nome && x.Id != entidade.Id);
+                .Any(x => x.Enum == entidade.Enum && x.Id != entidade.Id);
 
             if (existe)
             {
@@ -25,7 +27,7 @@ namespace LifeFit.Dominio.Servicos
             }
             try
             {
-                entidade.FocoMuscular = GetFoco(entidade.Nome);
+                entidade.FocoMuscular = GetFoco(entidade.Enum);
             }
             catch
             {

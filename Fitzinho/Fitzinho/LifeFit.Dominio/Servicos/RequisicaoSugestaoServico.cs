@@ -4,7 +4,12 @@ using LifeFit.Dominio.DTO.PythonApi;
 using LifeFit.Dominio.Entidades;
 using LifeFit.Dominio.ObjetosValor;
 using LifeFit.Dominio.Servicos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Json;
+using System.Threading.Tasks;
 
 public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
 {
@@ -64,13 +69,14 @@ public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
                 var enumExercicio = (ExercicioEnum)r.exercicio_id;
 
                 var exercicio = _repo.Consulta<Exercicio>()
-                    .FirstOrDefault(e => e.Nome == enumExercicio);
+                    .FirstOrDefault(e => e.Enum == enumExercicio);
 
                 if (exercicio == null)
                     throw new Exception($"Exercício não encontrado para enum: {enumExercicio}");
 
                 return new Sugestao
                 {
+                    Rank = r.rank,
                     ExercicioId = exercicio.Id,
                     Exercicio = null,
                     PontosPerfil = r.match_score,

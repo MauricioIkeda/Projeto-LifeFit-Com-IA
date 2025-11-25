@@ -1,5 +1,6 @@
 ﻿using FGB.Dominio.Entidades;
 using LifeFit.Dominio.ObjetosValor;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace LifeFit.Dominio.Entidades

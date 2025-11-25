@@ -18,8 +18,10 @@ namespace LifeFit.Dominio.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nome = table.Column<int>(type: "integer", nullable: false),
+                    Nome = table.Column<string>(type: "text", nullable: false),
+                    Enum = table.Column<int>(type: "integer", nullable: false),
                     FocoMuscular = table.Column<int>(type: "integer", nullable: false),
+                    FocoMuscularNome = table.Column<string>(type: "text", nullable: false),
                     CriadoEm = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     UltimaAlteracao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -38,7 +40,7 @@ namespace LifeFit.Dominio.Migrations
                     Sexo = table.Column<int>(type: "integer", nullable: false),
                     Peso = table.Column<float>(type: "real", nullable: false),
                     Altura = table.Column<int>(type: "integer", nullable: false),
-                    DataNascimento = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Idade = table.Column<int>(type: "integer", nullable: false),
                     NivelAtividadeFisica = table.Column<int>(type: "integer", nullable: false),
                     Objetivo = table.Column<int>(type: "integer", nullable: false),
                     Foco = table.Column<int>(type: "integer", nullable: false),
@@ -79,6 +81,7 @@ namespace LifeFit.Dominio.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Rank = table.Column<int>(type: "integer", nullable: false),
                     PerfilUsuarioId = table.Column<long>(type: "bigint", nullable: false),
                     ExercicioId = table.Column<long>(type: "bigint", nullable: false),
                     RequisicaoId = table.Column<long>(type: "bigint", nullable: false),

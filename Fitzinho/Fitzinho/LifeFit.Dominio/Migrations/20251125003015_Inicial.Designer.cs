@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LifeFit.Dominio.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20251124184138_Idade")]
-    partial class Idade
+    [Migration("20251125003015_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,11 +36,19 @@ namespace LifeFit.Dominio.Migrations
                     b.Property<DateTime?>("CriadoEm")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int>("Enum")
+                        .HasColumnType("integer");
+
                     b.Property<int>("FocoMuscular")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Nome")
-                        .HasColumnType("integer");
+                    b.Property<string>("FocoMuscularNome")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("UltimaAlteracao")
                         .HasColumnType("timestamp with time zone");
@@ -172,6 +180,9 @@ namespace LifeFit.Dominio.Migrations
                     b.Property<string>("PontosPerfil")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("Rank")
+                        .HasColumnType("integer");
 
                     b.Property<long>("RequisicaoId")
                         .HasColumnType("bigint");
