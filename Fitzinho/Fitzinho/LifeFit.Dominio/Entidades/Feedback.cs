@@ -9,6 +9,6 @@ namespace LifeFit.Dominio.Entidades
         public FeedBackEnum Avaliacao { get; set; }
         public long sugestaoId { get; set; }
         [JsonIgnore]
-        public Sugestao sugestao { get; set; }
+        public Sugestao? sugestao { get; set; }
     }
 }
