@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, ThumbsUp, ThumbsDown, Zap, Send, Dumbbell, Target, Trophy, BarChart, RefreshCw } from 'lucide-react';
+import { Clock, ThumbsUp, ThumbsDown, Send, Dumbbell, Target, Trophy, BarChart, RefreshCw } from 'lucide-react';
 import { Foco, Objetivo, type Sugestoes, type UserData } from '../models';
-import { Navigate, useLocation } from 'react-router';
+import { Navigate, useLocation, useNavigate } from 'react-router';
 import { api } from '../services/api';
 
 export default function Dashboard() {
@@ -10,6 +10,7 @@ export default function Dashboard() {
   const [feedbacks, setFeedbacks] = useState<Record<number, number>>({});
   const [isSending, setIsSending] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const navigate = useNavigate();
 
   const state = location.state as { perfilUsuario: UserData, sugestoes: Sugestoes[] } | null;
 
@@ -57,6 +58,7 @@ export default function Dashboard() {
   const handleReset = () => {
     setFeedbacks({});
     setIsFinished(false);
+    navigate('/profile-wizard');
   }
 
   // Variantes de Animação
@@ -151,8 +153,8 @@ export default function Dashboard() {
                   {isSending ? "Enviando..." : allRated ? <><Trophy size={18} /> Finalizar Treino</> : "Avalie todos"}
                 </button>
               ) : (
-                <button onClick={handleReset} className="w-full py-4 font-bold rounded-xl flex items-center justify-center gap-2 bg-white/10 text-white hover:bg-white/20 transition-all">
-                  <RefreshCw size={18} /> Recomeçar Demo
+                <button onClick={handleReset} className="w-full py-4 font-bold rounded-xl flex items-center justify-center gap-2 bg-white/10 text-white hover:bg-white/20 transition-all cursor-pointer">
+                  <RefreshCw size={18} /> Recomeçar Avaliação
                 </button>
               )}
             </div>
