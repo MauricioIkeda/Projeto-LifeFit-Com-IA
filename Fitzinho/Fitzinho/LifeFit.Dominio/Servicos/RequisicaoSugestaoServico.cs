@@ -78,7 +78,8 @@ public class RequisicaoSugestaoServico : ServicoConsulta<RequisicaoSugestao>
                 {
                     Rank = r.rank,
                     ExercicioId = exercicio.Id,
-                    Exercicio = null,
+                    NomeExercicio = exercicio.Nome,
+                    FocoMuscular = exercicio.FocoMuscularNome,
                     PontosPerfil = r.match_score,
                     PerfilUsuario = perfilUsuario
                 };

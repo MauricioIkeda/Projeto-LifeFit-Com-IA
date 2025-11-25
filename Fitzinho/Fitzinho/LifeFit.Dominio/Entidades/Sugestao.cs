@@ -12,6 +12,8 @@ namespace LifeFit.Dominio.Entidades
         public long ExercicioId { get; set; }
         public Exercicio Exercicio { get; set; }
         public long RequisicaoId { get; set; }
+        public string NomeExercicio { get; set; }
+        public string FocoMuscular { get; set; }
         [JsonIgnore]
         public RequisicaoSugestao Requisicao { get; set; }
         public string PontosPerfil { get; set; }
