@@ -44,7 +44,7 @@ export default function Dashboard() {
       await Promise.all(requests);
 
       setIsFinished(true);
-
+      alert("Avaliações enviadas com sucesso! Muito obrigado pelo seu feedback.");
     } catch (error) {
       console.error("Erro ao enviar feedbacks:", error);
       alert("Houve um erro ao salvar suas avaliações. Tente novamente.");
@@ -74,12 +74,12 @@ export default function Dashboard() {
   const FOCO_USUARIO = (Object.keys(Foco).find(key => Foco[key as keyof typeof Foco] === state.perfilUsuario.foco))?.toString().replace('_', ' ');
 
   // Lógica de Cores baseada no objetivo mockado
-  const themeColor = OBJETIVO_USUARIO === 'Perda De Peso' ? 'from-orange-600 to-red-900' :
-    OBJETIVO_USUARIO === 'Ganho De Massa' ? 'from-blue-600 to-indigo-900' :
+  const themeColor = state.perfilUsuario.objetivo === 0 ? 'from-orange-600 to-red-900' :
+    state.perfilUsuario.objetivo === 2 ? 'from-blue-600 to-indigo-900' :
       'from-green-600 to-emerald-900';
 
-  const accentColor = OBJETIVO_USUARIO === 'Perda De Peso' ? 'text-orange-400' :
-    OBJETIVO_USUARIO === 'Ganho De Massa' ? 'text-blue-400' :
+  const accentColor = state.perfilUsuario.objetivo === 0 ? 'text-orange-400' :
+    state.perfilUsuario.objetivo === 2 ? 'text-blue-400' :
       'text-green-400';
 
   return (
@@ -97,7 +97,7 @@ export default function Dashboard() {
               <div className="flex justify-between items-start md:block">
                 <div>
                   <span className="inline-block px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[10px] md:text-xs font-bold text-white mb-2 md:mb-4 border border-white/20 uppercase tracking-wider">
-                    IA Plan Demo
+                    Fitzinho IA
                   </span>
                   <h1 className="text-2xl md:text-3xl font-bold text-white leading-tight">Seu Treino</h1>
                   <p className="text-white/70 text-xs md:text-sm md:mb-6 mt-1">
@@ -116,9 +116,6 @@ export default function Dashboard() {
               <div className="flex gap-3 mt-6 md:mt-0 overflow-x-auto pb-2 md:pb-0 md:flex-col md:gap-3 no-scrollbar">
                 <div className="flex items-center gap-2 bg-black/10 md:bg-black/20 px-3 py-1.5 rounded-lg whitespace-nowrap text-white/80 text-xs md:text-sm">
                   <Clock size={14} /> <span>~45 min</span>
-                </div>
-                <div className="flex items-center gap-2 bg-black/10 md:bg-black/20 px-3 py-1.5 rounded-lg whitespace-nowrap text-white/80 text-xs md:text-sm">
-                  <Zap size={14} /> <span>Intenso</span>
                 </div>
                 <div className="flex items-center gap-2 bg-black/10 md:bg-black/20 px-3 py-1.5 rounded-lg whitespace-nowrap text-white/80 text-xs md:text-sm">
                   <Target size={14} /> <span className='capitalize'>{FOCO_USUARIO?.toLowerCase()}</span>
